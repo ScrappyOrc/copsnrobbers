@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// Action where the character follows another character
 /// </summary>
-public class Follow : MonoBehaviour, Action {
+public class Follow : Action {
 
 	private GameObject target;
 	private float distance;
