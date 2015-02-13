@@ -9,7 +9,6 @@ public class Character : MonoBehaviour {
 
 	private readonly Queue<Action> actionQueue = new Queue<Action>();
 	private NavMeshAgent agent;
-	private GameObject following;
 
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
@@ -33,14 +32,6 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		actionQueue.Peek().Apply(this);
-	}
-
-	/// <summary>
-	/// Seeks towards a target's position
-	/// </summary>
-	/// <param name="target">The target to follow</param>
-	public void Follow(GameObject target) {
-		following = target;
 	}
 
 	/// <summary>
