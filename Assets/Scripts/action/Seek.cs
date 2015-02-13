@@ -5,7 +5,7 @@ using System.Collections;
 /// Represents a seek action where the character 
 /// moves towards a given location
 /// </summary>
-public class Seek : MonoBehaviour, Action {
+public class Seek : Action {
 
 	private Vector3 target;
 
