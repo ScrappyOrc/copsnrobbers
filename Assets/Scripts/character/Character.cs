@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+public enum STEERING_TYPE
+{
+	FLEE,
+	SEEK,
+	FOLLOW
+};
+
 /// <summary>
 /// The base class for AI characters that are controlled by
 /// a NavMeshAgent component along with queued actions.
@@ -9,6 +16,9 @@ public class Character : MonoBehaviour {
 
 	private readonly Queue<Action> actionQueue = new Queue<Action>();
 	private NavMeshAgent agent;
+
+	public STEERING_TYPE type;
+	public GameObject fleeTarget;
 
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
@@ -22,9 +32,14 @@ public class Character : MonoBehaviour {
 	/// <summary>
 	/// Grabs the NavMeshAgent component on startup
 	/// </summary>
-	void Start () {
+	void Start ()
+	{
 		agent = GetComponent<NavMeshAgent>();
-		QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
+
+		if(type == STEERING_TYPE.SEEK)
+			QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
+		//else if(type == STEERING_TYPE.FLEE)
+		//	QueueAction(new Flee(fleeTarget.transform.position));
 	}
 
 	/// <summary>
