@@ -24,7 +24,7 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
-		QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
+		QueueAction(new Seek(new Vector3(-225.6f, 0.61f, -249f)));
 	}
 
 	/// <summary>
