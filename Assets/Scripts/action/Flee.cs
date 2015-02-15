@@ -23,38 +23,27 @@ public class Flee : Action
 	
 	/// <summary>
 	/// Updates the target position of the character
-	/// to follow the target GameObject.
+	/// to flee the target GameObject.
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply(Character character)
 	{
-		if (target != null) {
-			if ((character.transform.position - target.transform.position).sqrMagnitude < distance * distance) {
-				int rand = Random.Range (0, 4);
-				Vector3 newPosition = character.transform.position;
-
-				// find vector from me to target then move away by that vector*distance
-
-				if (rand == 0) {
-					newPosition.z += distance * 2;
-				} else if (rand == 1) {
-					newPosition.z -= distance * 2;
-				} else if (rand == 2) {
-					newPosition.x += distance * 2;
-				} else {
-					newPosition.x -= distance * 2;
-				}
-
-				//newPosition = new Vector3(-0.4319409f, 0.5093095f, -1.7f);
-
-				int navLayer = NavMesh.GetNavMeshLayerFromName("Default");
+		if (target != null)
+		{
+			if ((character.transform.position - target.transform.position).sqrMagnitude < distance * distance)
+			{
+				// Calculate the vector between the character and its target
+				Vector3 between = character.transform.position - target.transform.position;
+		
+				// Use the vector between to give the character a new position
+				Vector3 newPosition = character.transform.position + between;
 	
+				// Sample the nav mesh and move the character to the new position
 				NavMesh.SamplePosition (newPosition, out hit, distance, 1);
-				Debug.Log(hit.position);
 				character.Agent.SetDestination (hit.position); 
-				//character.Agent.SetDestination (newPosition);
-				//character.Agent.Resume();
-			} else {
+			}
+			else
+			{
 				character.Agent.Stop ();
 			}
 		}
