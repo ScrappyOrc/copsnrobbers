@@ -74,6 +74,35 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 19400000, guid: 6f969849ea77b224d96da74fefb87b15, type: 2}
+--- !u!1 &147762997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 147762998}
+  m_Layer: 0
+  m_Name: Characters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &147762998
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147762997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.144146, y: -107.335327, z: 118.638916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 254154453}
+  - {fileID: 551888592}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &148081856
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +257,7 @@ GameObject:
   - 195: {fileID: 254154448}
   - 114: {fileID: 254154447}
   m_Layer: 0
-  m_Name: Capsule 2
+  m_Name: Wanderer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,11 +359,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 254154446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.256999999, y: .610000014, z: -6.20800018}
+  m_LocalPosition: {x: 38.887146, y: 107.945328, z: -124.846916}
   m_LocalScale: {x: .309309602, y: .309309602, z: .309309602}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 147762998}
+  m_RootOrder: 0
 --- !u!1 &287390083
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1000,7 @@ GameObject:
   - 195: {fileID: 551888587}
   - 114: {fileID: 551888588}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Fleer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,10 +1102,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551888585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .349999994, y: .610000014, z: -5.7249999}
+  m_LocalPosition: {x: 39.4941444, y: 107.945328, z: -124.363914}
   m_LocalScale: {x: .309309602, y: .309309602, z: .309309602}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 147762998}
   m_RootOrder: 1
 --- !u!1 &612984001
 GameObject:
@@ -1575,7 +1604,7 @@ Transform:
   - {fileID: 1408368710}
   - {fileID: 1273009256}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &923016177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,7 +2219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1273009252
 GameObject:
   m_ObjectHideFlags: 0
