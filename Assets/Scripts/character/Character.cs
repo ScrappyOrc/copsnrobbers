@@ -39,7 +39,7 @@ public class Character : MonoBehaviour {
 		if(type == STEERING_TYPE.SEEK)
 			QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
 		else if(type == STEERING_TYPE.FLEE)
-			QueueAction(new Flee(fleeTarget, 5.0f));
+			QueueAction(new Flee(fleeTarget, 2.5f));
 	}
 
 	/// <summary>
