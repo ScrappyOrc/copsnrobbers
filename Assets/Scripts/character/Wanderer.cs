@@ -5,11 +5,10 @@ using System.Collections.Generic;
 /// The base class for AI characters that are controlled by
 /// a NavMeshAgent component along with queued actions.
 /// </summary>
-public class Wanderer : MonoBehaviour {
+public class Wanderer : Character {
 	
-	private readonly Queue<Action> actionQueue = new Queue<Action>();
-	private NavMeshAgent agent;
-	
+    public float range = 5;
+
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
 	/// to handle controlling movement patterns
@@ -24,7 +23,8 @@ public class Wanderer : MonoBehaviour {
 	/// </summary>
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
-		QueueAction(new Wander(this));
+		QueueAction(new Wander(this, range));
+		Debug.Log("Path pending: " + Agent.pathPending);
 	}
 	
 	/// <summary>
@@ -32,16 +32,25 @@ public class Wanderer : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		actionQueue.Peek().Apply(this);
-		if (!agent.pathPending)
-		{
+		// currently for some reason the path doesn't get completed, I will have to look into this
+        // my current theory is because the Y keeps changing on the wanderer the navigation system isn't recognizing that the path is completed
+        // first we check to see if the agent has a pending path
+        //if (!agent.pathPending) {
+            // then we check if the agent is stopping
 			if (agent.remainingDistance <= agent.stoppingDistance)
 			{
-				if (!agent.hasPath || cagent.velocity.sqrMagnitude ==0f)
+                // then we check to see if the agent has a path, or they have no velocity
+				if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
 				{
-					QueueAction(new Wander(this));
+                    // if it passes all the checks we can dequeue the current action
+                    // NOTE: if the first check gets fixed I don't think this is necessary
+					actionQueue.Dequeue ();
+                    
+                    // queue up the wander
+					QueueAction(new Wander(this, range));
 				}
 			}
-		}
+		//}
 	}
 	
 	/// <summary>

@@ -7,8 +7,8 @@ using System.Collections.Generic;
 /// </summary>
 public class Character : MonoBehaviour {
 
-	private readonly Queue<Action> actionQueue = new Queue<Action>();
-	private NavMeshAgent agent;
+	protected readonly Queue<Action> actionQueue = new Queue<Action>();
+	protected NavMeshAgent agent;
 
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character

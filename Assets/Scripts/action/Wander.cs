@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Wander : Action {
 
-	public int wanderRange = 10;
 	private Vector3 target;
 
 	/// <summary>
@@ -11,8 +10,10 @@ public class Wander : Action {
 	/// to pick a random location within range and move there
 	/// </summary>
 	/// <param name="character">the character that will be wandering</param>
-	public Wander (Wanderer character) {
-		target = character.transform.position + new Vector3(Random.Range(-wanderRange, 0, wanderRange);
+    public Wander (Wanderer character, float range) {
+		target = character.transform.position + new Vector3(Random.Range(-range, range),
+															0.61f,
+															Random.Range(-range, range));
 	}
 
 	/// <summary>
@@ -20,7 +21,7 @@ public class Wander : Action {
 	/// closer to the target position
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
-	public void Apply (Wanderer character) {
-	
+	public void Apply (Character character) {
+		character.Agent.SetDestination (target);
 	}
 }
