@@ -245,8 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2074beb6bac3e4484a7d1aac422a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   fleeTarget: {fileID: 0}
+  wanderRange: 5
 --- !u!195 &254154448
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   fleeTarget: {fileID: 254154446}
+  wanderRange: 5
 --- !u!23 &551888589
 Renderer:
   m_ObjectHideFlags: 0

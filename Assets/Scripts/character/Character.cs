@@ -5,7 +5,8 @@ public enum STEERING_TYPE
 {
 	FLEE,
 	SEEK,
-	FOLLOW
+	FOLLOW,
+    WANDER
 };
 
 /// <summary>
@@ -19,6 +20,8 @@ public class Character : MonoBehaviour {
 
 	public STEERING_TYPE type;
 	public GameObject fleeTarget;
+
+    public float wanderRange = 5;
 
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
@@ -40,6 +43,8 @@ public class Character : MonoBehaviour {
 			QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
 		else if(type == STEERING_TYPE.FLEE)
 			QueueAction(new Flee(fleeTarget, 2.5f));
+        else if(type == STEERING_TYPE.WANDER)
+            QueueAction(new Wander(this, wanderRange));
 	}
 
 	/// <summary>
@@ -47,6 +52,27 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		actionQueue.Peek().Apply(this);
+        if (type == STEERING_TYPE.WANDER) {
+            // currently for some reason the path doesn't get completed, I will have to look into this
+            // my current theory is because the Y keeps changing on the wanderer the navigation system isn't recognizing that the path is completed
+            // first we check to see if the agent has a pending path
+            //if (!agent.pathPending) {
+                // then we check if the agent is stopping
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    // then we check to see if the agent has a path, or they have no velocity
+                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    {
+                        // if it passes all the checks we can dequeue the current action
+                        // NOTE: if the first check gets fixed I don't think this is necessary
+                        actionQueue.Dequeue ();
+
+                        // queue up the wander
+                        QueueAction(new Wander(this, wanderRange));
+                    }
+                }
+            //}
+        }
 	}
 
 	/// <summary>

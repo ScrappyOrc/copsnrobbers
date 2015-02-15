@@ -10,7 +10,7 @@ public class Wander : Action {
 	/// to pick a random location within range and move there
 	/// </summary>
 	/// <param name="character">the character that will be wandering</param>
-    public Wander (Wanderer character, float range) {
+    public Wander (Character character, float range) {
 		target = character.transform.position + new Vector3(Random.Range(-range, range),
 															0.61f,
 															Random.Range(-range, range));
