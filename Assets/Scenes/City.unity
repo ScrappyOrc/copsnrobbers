@@ -16897,7 +16897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  fleeTarget: {fileID: 0}
+  target: {fileID: 0}
   wanderRange: 5
 --- !u!23 &551888589
 Renderer:
@@ -48670,7 +48670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  fleeTarget: {fileID: 1784804462}
+  target: {fileID: 1784804462}
   wanderRange: 5
 --- !u!195 &1519916289
 NavMeshAgent:
@@ -57404,7 +57404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  fleeTarget: {fileID: 1519916286}
+  target: {fileID: 1519916286}
   wanderRange: 5
 --- !u!195 &1784804464
 NavMeshAgent:
