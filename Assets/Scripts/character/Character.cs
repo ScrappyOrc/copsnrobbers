@@ -45,12 +45,15 @@ public class Character : MonoBehaviour {
 			QueueAction(new Flee(fleeTarget, 2.5f));
         else if(type == STEERING_TYPE.WANDER)
             QueueAction(new Wander(this, wanderRange));
+		else if (type == STEERING_TYPE.FOLLOW)
+			QueueAction(new Follow(fleeTarget, 2.0f));
 	}
 
 	/// <summary>
 	/// Updates the character by applying queued actions
 	/// </summary>
 	void Update () {
+		if (actionQueue.Count == 0) return;
 		actionQueue.Peek().Apply(this);
         if (type == STEERING_TYPE.WANDER) {
             // currently for some reason the path doesn't get completed, I will have to look into this
