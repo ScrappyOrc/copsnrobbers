@@ -19,7 +19,7 @@ public class Character : MonoBehaviour {
 	protected NavMeshAgent agent;
 
 	public STEERING_TYPE type;
-	public GameObject fleeTarget;
+	public GameObject target;
 
     public float wanderRange = 5;
 
@@ -42,11 +42,11 @@ public class Character : MonoBehaviour {
 		if(type == STEERING_TYPE.SEEK)
 			QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
 		else if(type == STEERING_TYPE.FLEE)
-			QueueAction(new Flee(fleeTarget, 2.5f));
+			QueueAction(new Flee(target, 2.5f));
         else if(type == STEERING_TYPE.WANDER)
             QueueAction(new Wander(this, wanderRange));
 		else if (type == STEERING_TYPE.FOLLOW)
-			QueueAction(new Follow(fleeTarget, 2.0f));
+			QueueAction(new Follow(target, 2.0f));
 	}
 
 	/// <summary>
