@@ -14,4 +14,10 @@ public interface Action {
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
 	void Apply(Character character);
+
+	/// <summary>
+	/// Checks whether or not the Action has been completed
+	/// </summary>
+	/// <returns>true if complete, false if still going</returns>
+	bool IsDone();
 }

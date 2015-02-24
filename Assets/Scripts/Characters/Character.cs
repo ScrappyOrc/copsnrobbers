@@ -46,7 +46,7 @@ public class Character : MonoBehaviour {
         else if(type == STEERING_TYPE.WANDER)
             QueueAction(new Wander(this, wanderRange));
 		else if (type == STEERING_TYPE.FOLLOW)
-			QueueAction(new Follow(target, 2.0f));
+			QueueAction(new Follow(target, 1.0f));
 	}
 
 	/// <summary>
@@ -54,7 +54,24 @@ public class Character : MonoBehaviour {
 	/// </summary>
 	void Update () {
 		if (actionQueue.Count == 0) return;
-		actionQueue.Peek().Apply(this);
+		Action next = actionQueue.Peek();
+
+		// When one action finishes, change to the next
+		if (next.IsDone()) 
+		{
+			actionQueue.Dequeue();
+
+			// Ran out of actions
+			if (actionQueue.Count == 0) 
+			{
+				agent.Stop();
+				return;
+			}
+
+			next = actionQueue.Peek();
+		}
+		next.Apply(this);
+
         if (type == STEERING_TYPE.WANDER) {
             // currently for some reason the path doesn't get completed, I will have to look into this
             // my current theory is because the Y keeps changing on the wanderer the navigation system isn't recognizing that the path is completed

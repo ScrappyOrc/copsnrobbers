@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wander : Action {
-
+/// <summary>
+/// Action for wandering around randomly
+/// </summary>
+public class Wander : Action 
+{
 	private Vector3 target;
+	private bool done = false;
 
 	/// <summary>
 	/// Creates a wander action that causes the target
@@ -22,6 +26,22 @@ public class Wander : Action {
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply (Character character) {
-		character.Agent.SetDestination (target);
+		if ((target - character.transform.position).sqrMagnitude < 0.001) 
+		{
+			done = true;
+		} 
+		else 
+		{
+			character.Agent.SetDestination (target);
+		}
+	}
+
+	/// <summary>
+	/// Checks whether or not the Action has been completed
+	/// </summary>
+	/// <returns>true if complete, false if still going</returns>
+	public bool IsDone() 
+	{
+		return done;
 	}
 }

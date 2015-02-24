@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Action for fleeing away from another character
+/// </summary>
 public class Flee : Action
 {
-	GameObject target;
-	float distance;
-	NavMeshHit hit;
+	private GameObject target;
+	private float distance;
+	private NavMeshHit hit;
+	private bool done = false;
 
 	/// <summary>
 	/// Creates a Flee action that causes the target
@@ -17,8 +21,6 @@ public class Flee : Action
 	{
 		this.target = target;
 		this.distance = distance;
-
-		hit = new NavMeshHit();
 	}
 	
 	/// <summary>
@@ -45,8 +47,17 @@ public class Flee : Action
 			}
 			else
 			{
-				character.Agent.Stop ();
+				done = true;
 			}
 		}
+	}
+
+	/// <summary>
+	/// Checks whether or not the Action has been completed
+	/// </summary>
+	/// <returns>true if complete, false if still going</returns>
+	public bool IsDone() 
+	{
+		return done;
 	}
 }

@@ -4,10 +4,11 @@ using System.Collections;
 /// <summary>
 /// Action where the character follows another character
 /// </summary>
-public class Follow : Action {
-
+public class Follow : Action 
+{
 	private GameObject target;
 	private float distance;
+	private bool done = false;
 
 	/// <summary>
 	/// Creates a follow action that causes the target
@@ -15,7 +16,8 @@ public class Follow : Action {
 	/// </summary>
 	/// <param name="target">GameObject to follow</param>
 	/// <param name="distance">Distance to keep when following</param> 
-	public Follow(GameObject target, float distance) {
+	public Follow(GameObject target, float distance) 
+	{
 		this.target = target;
 		this.distance = distance;
 	}
@@ -25,12 +27,24 @@ public class Follow : Action {
 	/// to follow the target GameObject.
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
-	public void Apply(Character character) {
-		if ((character.transform.position - target.transform.position).sqrMagnitude > distance * distance) {
+	public void Apply(Character character) 
+	{
+		if ((character.transform.position - target.transform.position).sqrMagnitude > distance * distance) 
+		{
 			character.Agent.SetDestination(target.transform.position);
 		}
-		else {
-			character.Agent.Stop();
+		else 
+		{
+			done = true;
 		}
+	}
+
+	/// <summary>
+	/// Checks whether or not the Action has been completed
+	/// </summary>
+	/// <returns>true if complete, false if still going</returns>
+	public bool IsDone() 
+	{
+		return done;
 	}
 }
