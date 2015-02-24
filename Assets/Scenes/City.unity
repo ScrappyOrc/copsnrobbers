@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: b36e6492d49818c4ca99257e899b9c2b, type: 2}
 --- !u!1 &426612
 GameObject:
@@ -48653,7 +48654,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1519916286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.2399998, y: 1, z: 9.14000034}
+  m_LocalPosition: {x: 2.23000002, y: 1, z: 9.14000034}
   m_LocalScale: {x: .309309602, y: .309309602, z: .309309602}
   m_Children: []
   m_Father: {fileID: 939405805}
@@ -63507,6 +63508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f882633d2c13e47983ba5eeb884ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TRANSLATE_SPEED: .25
+  ROTATE_SPEED: .200000003
 --- !u!1 &1939303790
 GameObject:
   m_ObjectHideFlags: 0
