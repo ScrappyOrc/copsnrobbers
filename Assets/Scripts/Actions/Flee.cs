@@ -34,12 +34,13 @@ public class Flee : Action
 			{
 				// Calculate the vector between the character and its target
 				Vector3 between = character.transform.position - target.transform.position;
-		
+				between.Normalize();
+
 				// Use the vector between to give the character a new position
-				Vector3 newPosition = character.transform.position + between;
+				Vector3 newPosition = character.transform.position + between * 500;
 	
 				// Sample the nav mesh and move the character to the new position
-				NavMesh.SamplePosition (newPosition, out hit, distance, 1);
+				NavMesh.SamplePosition (newPosition, out hit, 500, 1);
 				character.Agent.SetDestination (hit.position); 
 			}
 			else
