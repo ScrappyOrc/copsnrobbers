@@ -40,9 +40,9 @@ public class Character : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent>();
 
 		if(type == STEERING_TYPE.SEEK)
-			QueueAction(new Seek(new Vector3(4.38f, 0.61f, -5.72f)));
-		else if(type == STEERING_TYPE.FLEE)
-			QueueAction(new Flee(target, 50.0f));
+			QueueAction(new Seek(target.transform.position));
+		//else if(type == STEERING_TYPE.FLEE)
+		//	QueueAction(new Flee(target, 50.0f));
         else if(type == STEERING_TYPE.WANDER)
             QueueAction(new Wander(this, wanderRange));
 		else if (type == STEERING_TYPE.FOLLOW)
@@ -56,6 +56,8 @@ public class Character : MonoBehaviour {
 		if (actionQueue.Count == 0) return;
 		Action next = actionQueue.Peek();
 
+		if(next != null)
+		{
 		// When one action finishes, change to the next
 		if (next.IsDone()) 
 		{
@@ -71,6 +73,12 @@ public class Character : MonoBehaviour {
 			next = actionQueue.Peek();
 		}
 		next.Apply(this);
+		}
+		else
+		{
+			agent.Stop();
+			return;
+		}
 
         if (type == STEERING_TYPE.WANDER) {
             // currently for some reason the path doesn't get completed, I will have to look into this
@@ -93,6 +101,16 @@ public class Character : MonoBehaviour {
                 }
             //}
         }
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if(type == STEERING_TYPE.FLEE && col.gameObject.GetComponent<NavMeshAgent>() != null)// && col.gameObject.name == target.gameObject.name)
+		{
+			QueueAction(new Flee(col.gameObject, 50.0f));
+			Debug.Log("Flee collided with " + col.gameObject.name + " and is fleeing from it");
+
+		}
 	}
 
 	/// <summary>
