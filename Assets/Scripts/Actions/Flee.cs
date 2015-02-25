@@ -39,7 +39,7 @@ public class Flee : Action
 				between.Normalize();
 
 				// Use the vector between to give the character a new position
-				Vector3 newPosition = character.transform.position + between * 500;
+				Vector3 newPosition = character.transform.position + between * distance;
 	
 				// Sample the nav mesh and move the character to the new position
 				NavMesh.SamplePosition (newPosition, out hit, 500, 1);
