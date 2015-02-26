@@ -21,7 +21,7 @@ public class Character : MonoBehaviour {
 	public STEERING_TYPE type;
 	public GameObject target;
 
-    public float wanderRange = 5;
+    public int wanderBlocks = 3;
 
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
@@ -44,7 +44,7 @@ public class Character : MonoBehaviour {
 		//else if(type == STEERING_TYPE.FLEE)
 		//	QueueAction(new Flee(target, 50.0f));
         else if(type == STEERING_TYPE.WANDER)
-            QueueAction(new Wander(this, wanderRange));
+            QueueAction(new Wander(this, wanderBlocks));
 		else if (type == STEERING_TYPE.FOLLOW)
 			QueueAction(new Follow(target, 1.0f));
 	}
@@ -79,7 +79,7 @@ public class Character : MonoBehaviour {
 			agent.Stop();
 			return;
 		}
-
+		/*
         if (type == STEERING_TYPE.WANDER) {
             // currently for some reason the path doesn't get completed, I will have to look into this
             // my current theory is because the Y keeps changing on the wanderer the navigation system isn't recognizing that the path is completed
@@ -101,6 +101,7 @@ public class Character : MonoBehaviour {
                 }
             //}
         }
+        */
 	}
 
 	void OnTriggerEnter(Collider col)
