@@ -21,6 +21,12 @@ public class Flee : Action
 	{
 		this.target = target;
 		this.distance = distance;
+
+		// Shouldn't ever provide a null target, but just in case
+		if (target == null) 
+		{
+			this.done = true;
+		}
 	}
 	
 	/// <summary>
@@ -30,25 +36,37 @@ public class Flee : Action
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply(Character character)
 	{
-		if (target != null)
+		// Shouldn't ever happen, but just in case
+		if (target == null) 
 		{
-			if ((character.transform.position - target.transform.position).sqrMagnitude < distance * distance)
-			{
-				// Calculate the vector between the character and its target
-				Vector3 between = character.transform.position - target.transform.position;
-				between.Normalize();
+			return;
+		}
 
-				// Use the vector between to give the character a new position
-				Vector3 newPosition = character.transform.position + between * distance;
-	
-				// Sample the nav mesh and move the character to the new position
-				NavMesh.SamplePosition (newPosition, out hit, 500, 1);
-				character.Agent.SetDestination (hit.position); 
-			}
-			else
+		// Keep fleeing while too close to the threat
+		if ((character.transform.position - target.transform.position).sqrMagnitude < distance * distance)
+		{
+			// Don't need to update the target constantly
+			if ((character.Agent.destination - character.transform.position).sqrMagnitude > 5) 
 			{
-				done = true;
+				return;
 			}
+
+			// Calculate the vector between the character and its target
+			Vector3 between = character.transform.position - target.transform.position;
+			between.Normalize();
+
+			// Use the vector between to give the character a new position
+			Vector3 newPosition = character.transform.position + between * distance;
+
+			// Sample the nav mesh and move the character to the new position
+			NavMesh.SamplePosition (newPosition, out hit, 500, 1);
+			character.Agent.SetDestination (hit.position); 
+		}
+
+		// Done fleeing when far enough away
+		else
+		{
+			done = true;
 		}
 	}
 
