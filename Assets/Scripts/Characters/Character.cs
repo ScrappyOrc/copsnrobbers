@@ -35,7 +35,7 @@ public class Character : MonoBehaviour {
 	/// <summary>
 	/// Grabs the NavMeshAgent component on startup
 	/// </summary>
-	void Start ()
+	virtual protected void Start ()
 	{
 		agent = GetComponent<NavMeshAgent>();
 
@@ -44,7 +44,7 @@ public class Character : MonoBehaviour {
 		//else if(type == STEERING_TYPE.FLEE)
 		//	QueueAction(new Flee(target, 50.0f));
         else if(type == STEERING_TYPE.WANDER)
-            QueueAction(new Wander(this, wanderBlocks));
+            QueueAction(new Wander(wanderBlocks));
 		else if (type == STEERING_TYPE.FOLLOW)
 			QueueAction(new Follow(target, 1.0f));
 	}
@@ -52,7 +52,7 @@ public class Character : MonoBehaviour {
 	/// <summary>
 	/// Updates the character by applying queued actions
 	/// </summary>
-	void Update () {
+	virtual protected void Update () {
 		if (actionQueue.Count == 0) return;
 		Action next = actionQueue.Peek();
 

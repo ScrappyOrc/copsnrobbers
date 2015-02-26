@@ -13,9 +13,9 @@ public class Wander : Action
 	/// Creates a wander action that causes the target
 	/// to pick a random location within range and move there
 	/// </summary>
-	/// <param name="character">the character that will be wandering</param>
-    public Wander (Character character, int blocks) {
-
+	/// <param name="blocks">Max deviation from the center of the city in blocks</param> 
+    public Wander (int blocks) 
+	{
 		target = City.getRandomPoint(blocks);
 	}
 
@@ -24,15 +24,13 @@ public class Wander : Action
 	/// closer to the target position
 	/// </summary>
 	/// <param name="character">The character controlled by the action</param>
-	public void Apply (Character character) {
-		if ((target - character.transform.position).sqrMagnitude < 0.001) 
-		{
-			done = true;
-		} 
-		else if (character.Agent.destination != target)
+	public void Apply (Character character) 
+	{
+		if (character.Agent.destination != target)
 		{
 			character.Agent.SetDestination (target);
 		}
+		done = (target - character.transform.position).sqrMagnitude < 0.001;
 	}
 
 	/// <summary>
