@@ -12776,7 +12776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
-  PROCESS_TIME: 5
+  PROCESS_TIME: 20
   LINE_SPACE: .5
 --- !u!1 &423774905
 GameObject:
@@ -19828,7 +19828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
-  PROCESS_TIME: 5
+  PROCESS_TIME: 20
   LINE_SPACE: .5
 --- !u!1 &651699493
 GameObject:
@@ -21602,7 +21602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -50
-  PROCESS_TIME: 5
+  PROCESS_TIME: 30
   LINE_SPACE: .5
 --- !u!1 &717957564
 GameObject:
@@ -41249,7 +41249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -15
-  PROCESS_TIME: 5
+  PROCESS_TIME: 20
   LINE_SPACE: .5
 --- !u!1 &1272299379
 GameObject:
@@ -54961,7 +54961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -30
-  PROCESS_TIME: 5
+  PROCESS_TIME: 20
   LINE_SPACE: .5
 --- !u!1 &1707132643
 GameObject:
