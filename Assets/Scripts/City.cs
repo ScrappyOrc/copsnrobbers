@@ -26,6 +26,21 @@ public class City {
 	// before reaching the edge of the city in a single direction
 	public static readonly int MAX_OFFSET = 5;
 
+	public static GameObject[] houses;
+	public static GameObject[] shops;
+	public static GameObject[] banks;
+
+	/// <summary>
+	/// Initializes data such as grabbing the locations of shops,
+	/// banks and houses for quick access later on
+	/// </summary>
+	public static void initialize() 
+	{
+		houses = GameObject.FindGameObjectsWithTag("House");
+		shops = GameObject.FindGameObjectsWithTag("Shop");
+		banks = GameObject.FindGameObjectsWithTag("Bank");
+	}
+
 	/// <summary>
 	/// Gets a random point in the city that is on a
 	/// street within the given number of blocks from

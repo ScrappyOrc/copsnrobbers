@@ -36,5 +36,7 @@ public class GameManager : MonoBehaviour
 			citizen.transform.position = City.getRandomPoint(4, true);
 			citizenList[i] = citizen;
 		}
+
+		City.initialize();
 	}
 }
