@@ -14,9 +14,9 @@ public class Wander : Action
 	/// to pick a random location within range and move there
 	/// </summary>
 	/// <param name="blocks">Max deviation from the center of the city in blocks</param> 
-    public Wander (int blocks) 
+    public Wander (int blocks = 4) 
 	{
-		target = City.getRandomPoint(blocks);
+		target = City.GetRandomPoint(blocks);
 	}
 
 	/// <summary>
@@ -26,6 +26,9 @@ public class Wander : Action
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply (Character character) 
 	{
+		// Debug - let use see what the character is doing
+		character.type = STEERING_TYPE.WANDER;
+
 		if (character.Agent.destination != target)
 		{
 			character.Agent.SetDestination (target);

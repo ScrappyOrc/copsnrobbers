@@ -34,11 +34,46 @@ public class City {
 	/// Initializes data such as grabbing the locations of shops,
 	/// banks and houses for quick access later on
 	/// </summary>
-	public static void initialize() 
+	public static void Initialize() 
 	{
 		houses = GameObject.FindGameObjectsWithTag("House");
 		shops = GameObject.FindGameObjectsWithTag("Shop");
 		banks = GameObject.FindGameObjectsWithTag("Bank");
+	}
+
+	/// <summary>
+	/// Gets a random key point from the list
+	/// </summary>
+	/// <param name="list">The list to use</param>
+	/// <returns>The random key point from the list</returns>
+	public static GameObject GetRandom(GameObject[] list) 
+	{
+		Debug.Log ("R:" + Random.value);
+		Debug.Log (list.Length);
+		return list [(int)(Random.value * list.Length)];
+	}
+
+	/// <summary>
+	/// Gets the nearest key point to the source character from
+	/// the given list of key points
+	/// </summary>
+	/// <returns>The nearest key point in the list to the source character</returns>
+	/// <param name="list">List of key points to use</param>
+	/// <param name="source">Source character</param>
+	public static GameObject GetNearest(GameObject[] list, GameObject source) 
+	{
+		float dSq = float.MaxValue;
+		GameObject closest = null;
+		foreach (GameObject point in list) 
+		{
+			var d = (point.transform.position - source.transform.position).sqrMagnitude;
+			if (d < dSq)
+			{
+				closest = point;
+				dSq = d;
+			}
+		}
+		return closest;
 	}
 
 	/// <summary>
@@ -49,7 +84,7 @@ public class City {
 	/// <returns>The random point</returns>
 	/// <param name="blocks">Number of blocks to allow from the center of the city (default MAX_OFFSET)</param> 
 	/// <param name="extra">Whether or not to offset across the street along with down blocks (default true)</param>
-	public static Vector3 getRandomPoint(int blocks = 999, bool extra = true) 
+	public static Vector3 GetRandomPoint(int blocks = 999, bool extra = true) 
 	{
 		blocks = Mathf.Min (MAX_OFFSET, Mathf.Max (0, blocks));
 		Vector3 pos = new Vector3 (CENTER.x, CENTER.y, CENTER.z);
@@ -94,7 +129,7 @@ public class City {
 	/// </summary>
 	/// <returns>The random intersection's center</returns>
 	/// <param name="blocks">Number of blocks to allow from the center of the city (default MAX_OFFSET)</param>
-	public static Vector3 getRandomIntersection(int blocks = 999)
+	public static Vector3 GetRandomIntersection(int blocks = 999)
 	{
 		blocks = Mathf.Min (MAX_OFFSET, Mathf.Max (0, blocks));
 

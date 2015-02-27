@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: b36e6492d49818c4ca99257e899b9c2b, type: 2}
 --- !u!1 &426612
 GameObject:
@@ -20523,6 +20524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CITIZEN: {fileID: 199704, guid: 9b85443d1147ba141b02339430f8022b, type: 2}
   CITIZENS: 500
+  SPAWN_RATE: 1
 --- !u!4 &665037318
 Transform:
   m_ObjectHideFlags: 0

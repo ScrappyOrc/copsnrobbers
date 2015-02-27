@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: b36e6492d49818c4ca99257e899b9c2b, type: 2}
 --- !u!1 &426612
 GameObject:
@@ -11314,9 +11315,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 540860472}
   - {fileID: 717757936}
   - {fileID: 1269642499}
+  - {fileID: 1706940607}
   m_Father: {fileID: 149892310}
   m_RootOrder: 0
 --- !u!1 &396420417
@@ -12743,6 +12744,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422958593}
+  - 114: {fileID: 422958594}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Bank
@@ -12762,6 +12764,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2096232802}
   m_RootOrder: 1
+--- !u!114 &422958594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422958592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e71b1911a6e764aa25ed6a20c24a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MONEY_AMOUNT: 200
+  PROCESS_TIME: 5
+  LINE_SPACE: .5
 --- !u!1 &423774905
 GameObject:
   m_ObjectHideFlags: 0
@@ -16608,33 +16624,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 539246653}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &540860471
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 540860472}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Shop
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &540860472
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 540860471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.0800018, y: 0, z: -9.39999962}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 395229159}
-  m_RootOrder: 0
 --- !u!1 &542279284
 GameObject:
   m_ObjectHideFlags: 0
@@ -19807,6 +19796,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 650448290}
+  - 114: {fileID: 650448291}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Bank
@@ -19826,6 +19816,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2096232802}
   m_RootOrder: 0
+--- !u!114 &650448291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 650448289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e71b1911a6e764aa25ed6a20c24a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MONEY_AMOUNT: 200
+  PROCESS_TIME: 5
+  LINE_SPACE: .5
 --- !u!1 &651699493
 GameObject:
   m_ObjectHideFlags: 0
@@ -20369,7 +20373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CITIZEN: {fileID: 199704, guid: 9b85443d1147ba141b02339430f8022b, type: 2}
-  CITIZENS: 10
+  CITIZENS: 100
+  SPAWN_RATE: .100000001
 --- !u!4 &665037318
 Transform:
   m_ObjectHideFlags: 0
@@ -21565,6 +21570,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 717757936}
+  - 114: {fileID: 717757937}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Shop
@@ -21578,12 +21584,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717757935}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -20.7800007, y: 0, z: 77.4400024}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: -160.949997, y: 0, z: 139.899994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 395229159}
-  m_RootOrder: 1
+  m_RootOrder: 0
+--- !u!114 &717757937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717757935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e71b1911a6e764aa25ed6a20c24a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MONEY_AMOUNT: -50
+  PROCESS_TIME: 5
+  LINE_SPACE: .5
 --- !u!1 &717957564
 GameObject:
   m_ObjectHideFlags: 0
@@ -41197,6 +41217,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1269642499}
+  - 114: {fileID: 1269642500}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Shop
@@ -41210,12 +41231,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1269642498}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -11.1099997, y: 0, z: -46.5200005}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 87.6999969, y: 0, z: -72.6600037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 395229159}
-  m_RootOrder: 2
+  m_RootOrder: 1
+--- !u!114 &1269642500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269642498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e71b1911a6e764aa25ed6a20c24a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MONEY_AMOUNT: -15
+  PROCESS_TIME: 5
+  LINE_SPACE: .5
 --- !u!1 &1272299379
 GameObject:
   m_ObjectHideFlags: 0
@@ -54886,6 +54921,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706434114}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1706940606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1706940607}
+  - 114: {fileID: 1706940608}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Shop
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1706940607
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706940606}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 89.3099976, y: 0, z: 169.550003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 395229159}
+  m_RootOrder: 2
+--- !u!114 &1706940608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1706940606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e71b1911a6e764aa25ed6a20c24a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MONEY_AMOUNT: -30
+  PROCESS_TIME: 5
+  LINE_SPACE: .5
 --- !u!1 &1707132643
 GameObject:
   m_ObjectHideFlags: 0
