@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 
 	public GameObject CITIZEN;
 	public int CITIZENS = 100;
+	public float SPAWN_RATE = 0.1f;
 
 	private GameObject[] citizenList;
+	private float spawnTimer;
 
 	/// <summary>
 	/// Retrieves the list of citizens in the game
@@ -27,14 +29,26 @@ public class GameManager : MonoBehaviour
 	void Start() 
 	{
 		singleton = this;
-
-		// Populate the city with citizens
+		spawnTimer = SPAWN_RATE;
 		citizenList = new GameObject[CITIZENS];
-		for (int i = 0; i < CITIZENS; i++) 
+
+		City.Initialize();
+	}
+
+	void Update() 
+	{
+		if (CITIZENS > 0) 
 		{
-			GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
-			citizen.transform.position = City.getRandomPoint(4, true);
-			citizenList[i] = citizen;
+			spawnTimer -= Time.deltaTime;
+			while (spawnTimer <= 0) 
+			{
+				spawnTimer += SPAWN_RATE;
+				GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
+				GameObject spawn = City.GetRandom(City.houses);
+				citizen.transform.position = spawn.transform.position;
+				citizenList[citizenList.Length - CITIZENS] = citizen;
+				CITIZENS--;
+			}
 		}
 	}
 }

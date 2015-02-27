@@ -9,32 +9,36 @@ public class Seek : Action
 {
 	private Vector3 target;
 	private bool done = false;
+	private float distanceSq;
 
 	/// <summary>
 	/// Creates a Seek action from a GameObject containing the target position
 	/// </summary>
 	/// <param name="target">GameObject containing the target position</param>
-	public Seek(GameObject target) 
+	public Seek(GameObject target, float distance = 0.01f) 
 	{
 		this.target = target.transform.position;
+		this.distanceSq = distance * distance;
 	}
 
 	/// <summary>
 	/// Creates a Seek action from a transform containing the target position
 	/// </summary>
 	/// <param name="target">Transform containing the target position</param>
-	public Seek(Transform target) 
+	public Seek(Transform target, float distance = 0.01f) 
 	{
 		this.target = target.position;
+		this.distanceSq = distance * distance;
 	}
 
 	/// <summary>
 	/// Creates a Seek action from a given vector coordinate
 	/// </summary>
 	/// <param name="target">Target position</param>
-	public Seek(Vector3 target) 
+	public Seek(Vector3 target, float distance = 0.01f) 
 	{
 		this.target = target;
+		this.distanceSq = distance * distance;
 	}
 
 	/// <summary>
@@ -44,7 +48,10 @@ public class Seek : Action
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply(Character character) 
 	{
-		if ((target - character.transform.position).sqrMagnitude < 0.001) 
+		// Debug - let use see what the character is doing
+		character.type = STEERING_TYPE.SEEK;
+
+		if ((target - character.transform.position).sqrMagnitude < distanceSq) 
 		{
 			done = true;
 		} 
