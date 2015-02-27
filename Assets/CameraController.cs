@@ -25,16 +25,16 @@ public class CameraController : MonoBehaviour {
 		forward = forward.normalized * TRANSLATE_SPEED;
 
 		if (Input.GetKey (KeyCode.W)) {
-			displacement = forward;
+			displacement += forward;
 		} 
 		if (Input.GetKey (KeyCode.S)) {
-			displacement = -forward;
+			displacement += -forward;
 		} 
 		if (Input.GetKey (KeyCode.A)) {
-			displacement = -transform.right * TRANSLATE_SPEED;
+			displacement += -transform.right * TRANSLATE_SPEED;
 		} 
 		if (Input.GetKey (KeyCode.D)) {
-			displacement = transform.right * TRANSLATE_SPEED;
+			displacement += transform.right * TRANSLATE_SPEED;
 		}
 		if (Input.GetKey (KeyCode.Q)) {
 			rotation = Quaternion.Euler(-eulerAngle);
@@ -42,9 +42,17 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.E)) {
 			rotation = Quaternion.Euler(eulerAngle);
 		}
-		
+
+		//if(Input.GetMouseButtonDown(0))
+		//	transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * 100.0f);
+
+		// Rotate camera based on mouse movement
+		float h = 2.0f * Input.GetAxis("Mouse X");
+		float v = 2.0f * Input.GetAxis("Mouse Y") * -1.0f;
+		Vector3 hi = new Vector3(v, h, 0);
+		gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + hi);
 
 		gameObject.transform.position += displacement;
-		gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + rotation.eulerAngles);
+		//gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + rotation.eulerAngles);
 	}
 }
