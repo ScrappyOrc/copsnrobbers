@@ -10,10 +10,6 @@ public class Citizen : Character
 	// Max money a citizen can start with
 	public float MAX_MONEY = 1000.0f;
 
-	// Least amount of money a citizen can have before 
-	// they need to visit a bank
-	public float LOW_MONEY = 50.0f;
-
 	/// <summary>
 	/// Characters start of wandering about the city
 	/// </summary>
@@ -45,28 +41,31 @@ public class Citizen : Character
 	/// </summary>
 	private void Decide() 
 	{
-		// Out of money causes them to go to a bank
-		if (money < LOW_MONEY) 
+		// Wander around the city looking for something to do
+		if (Random.value < 0.7)
 		{
-			GameObject bank = City.GetNearest(City.banks, gameObject);
-			QueueAction(new Seek(bank, 10));
-			QueueAction(new Shop(bank.GetComponent<Building>()));
-		} 
+			QueueAction(new Wander(4));
+			QueueAction(new Idle(2));
+		}
+
+		// Look for a shop to buy from
 		else 
 		{
-			// Randomly goes to a shop or wanders around looking
-			// for something to do
-			if (Random.value < 0.7)
+			GameObject shop = City.GetRandom(City.shops);
+			Building script = shop.GetComponent<Building>();
+
+			// Need to go to a bank if does not have enough money to
+			// buy from the desired shop
+			if (money < script.MONEY_AMOUNT)
 			{
-				QueueAction(new Wander(4));
-				QueueAction(new Idle(2));
+				GameObject bank = City.GetRandom(City.banks);
+				QueueAction(new Seek(bank, 10));
+				QueueAction(new Shop(bank.GetComponent<Building>()));
 			}
-			else 
-			{
-				GameObject shop = City.GetRandom(City.shops);
-				QueueAction(new Seek(shop, 10));
-				QueueAction(new Shop(shop.GetComponent<Building>()));
-			}
+
+			// Move to and then get in line at the shop
+			QueueAction(new Seek(shop, 10));
+			QueueAction(new Shop(script));
 		}
 	}
 }
