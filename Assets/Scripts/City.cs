@@ -48,8 +48,8 @@ public class City {
 	/// <returns>The random key point from the list</returns>
 	public static GameObject GetRandom(GameObject[] list) 
 	{
-		Debug.Log ("R:" + Random.value);
-		Debug.Log (list.Length);
+		//Debug.Log ("R:" + Random.value);
+		//Debug.Log (list.Length);
 		return list [(int)(Random.value * list.Length)];
 	}
 
