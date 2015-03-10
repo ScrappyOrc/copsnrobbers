@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Reflection;
 
 /// <summary>
 /// Represents a general NPC that wanders around the city or gets in 
@@ -31,7 +32,7 @@ public class Citizen : Character
 
 		if (this.actionQueue.Count == 0) 
 		{
-			Decide ();
+			Old_Decide ();
 		}
 	}
 
@@ -39,7 +40,7 @@ public class Citizen : Character
 	/// Tells the citizen to decide what to do next
 	/// under normal circumstances. 
 	/// </summary>
-	private void Decide() 
+	private void Old_Decide() 
 	{
 		// Wander around the city looking for something to do
 		if (Random.value < 0.7)
@@ -67,5 +68,83 @@ public class Citizen : Character
 			QueueAction(new Seek(shop, 10));
 			QueueAction(new Shop(script));
 		}
+	}
+
+	/// <summary>
+	/// Decide what action to take
+	/// </summary>
+	private void Decide() {
+		MakeDecision();
+	}
+
+	// this is here because we weren't sure if the parent would be able to access the child's functions through reflection
+	// maybe it can? try later
+	public override void MakeDecision() {
+		DecisionTree.Node node = dTree.Root;
+		bool inTree = true;
+		while (inTree) {
+			MethodInfo method = this.GetType().GetMethod(node.Data);
+			if ((bool)method.Invoke(this, null)) {
+				if (node.IsLeaf()) inTree = false;
+				else {
+					node = node.YesPtr;
+				}
+			} else {
+				if (node.IsLeaf()) inTree = false;
+				else {
+					node = node.NoPtr;
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Am I shopping
+	/// </summary>
+	private bool TryShop() {
+		
+		return true;
+	}
+
+	/// <summary>
+	/// Do I have money?
+	/// </summary>
+	private bool HaveMoney() {
+		return true;
+	}
+
+	/// <summary>
+	/// am i in line?
+	/// </summary>
+	private bool CheckInLine() {
+		return true;
+	}
+
+	/// <summary>
+	/// am I looking for a bank?
+	/// </summary>
+	private bool LookForBank() {
+		return true;
+	}
+
+	/// <summary>
+	/// CHANCE!
+	/// </summary>
+	private bool Chance() {
+		return true;
+	}
+
+	/// <summary>
+	/// Am I looking for a shop
+	/// </summary>
+	private bool LookForShop() {
+		return true;
+	}
+
+	/// <summary>
+	/// Should I start wandering around
+	/// </summary>
+	private bool StartWander() {
+		return true;
 	}
 }
