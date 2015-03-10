@@ -1,9 +1,9 @@
 ITryShop
-IChance
-LWander
-LLookForShop
 IHaveMoney
-LLookForBank
-IInLine
-LGetInLine
+ICheckInLine
 LWaitBuy
+LGetInLine
+LLookForBank
+IChance
+LLookForShop
+LWander
