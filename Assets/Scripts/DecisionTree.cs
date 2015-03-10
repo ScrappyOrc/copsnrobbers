@@ -87,7 +87,11 @@ public class DecisionTree {
 			get { return noPtr; }
 			set { noPtr = value; }
 		}
-		
+
+		public bool IsLeaf() {
+			if (noPtr == null && yesPtr == null) return true; return false;
+		}
+
 		public Node YesPtr
 		{
 			get { return yesPtr; }
