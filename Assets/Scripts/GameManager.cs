@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 				GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
 				GameObject spawn = City.GetRandom(City.houses);
 				citizen.transform.position = spawn.transform.position;
-				citizen.GetComponent<Character>().dTree = dTrees[0];
+				citizen.GetComponent<Citizen>().dTree = dTrees[0];
 				citizenList[citizenList.Length - CITIZENS] = citizen;
 
 				CITIZENS--;
