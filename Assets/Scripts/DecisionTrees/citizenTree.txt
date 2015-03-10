@@ -6,4 +6,4 @@ LGetInLine
 LLookForBank
 IChance
 LLookForShop
-LWander
+LStartWander
