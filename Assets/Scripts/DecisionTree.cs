@@ -10,6 +10,12 @@ public class DecisionTree {
 
 	private Node root;
 
+	public Node Root {
+		get {
+			return root;
+		}
+	}
+
 	/// <summary>
 	/// Initializes the decision tree using the data from the file
 	/// at the given path
