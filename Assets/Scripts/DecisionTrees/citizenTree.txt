@@ -1,0 +1,9 @@
+ITryShop
+IChance
+LWander
+LLookForShop
+IHaveMoney
+LLookForBank
+IInLine
+LGetInLine
+LWaitBuy
