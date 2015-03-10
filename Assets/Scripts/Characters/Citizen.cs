@@ -20,7 +20,7 @@ public class Citizen : Character
 		base.Start ();
 
 		money = MAX_MONEY * Random.value;
-		Decide ();
+		Old_Decide ();
 	}
 
 	/// <summary>
