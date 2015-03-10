@@ -23,6 +23,8 @@ public class Character : MonoBehaviour {
 
 	public STEERING_TYPE type; 
 	public GameObject target;
+	
+	public DecisionTree dTree;
 
     public int wanderBlocks = 3;
 

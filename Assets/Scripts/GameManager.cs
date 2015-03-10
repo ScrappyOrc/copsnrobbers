@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager singleton;
 
 	public GameObject CITIZEN;
-	public int CITIZENS = 100;
+	public int CITIZENS = 10;
 	public float SPAWN_RATE = 0.1f;
 
 	private const string FILE_LOCATION = "Assets/Scripts/DecisionTrees/";
@@ -65,8 +65,7 @@ public class GameManager : MonoBehaviour
 				GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
 				GameObject spawn = City.GetRandom(City.houses);
 				citizen.transform.position = spawn.transform.position;
-				//citizen.dTree = dTrees[0];
-
+				citizen.GetComponent<Character>().dTree = dTrees[0];
 				citizenList[citizenList.Length - CITIZENS] = citizen;
 
 				CITIZENS--;
