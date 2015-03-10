@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Reflection;
 
 public enum STEERING_TYPE
 {
@@ -116,4 +117,26 @@ public class Character : MonoBehaviour {
 		actionQueue.Clear();
 		actionQueue.Enqueue(action);
 	}
+
+
+	virtual void MakeDecision() {
+		DecisionTree.Node node = dTree.Root;
+		bool inTree = true;
+		while (inTree) {
+			MethodInfo method = this.GetType().GetMethod(node.Data);
+			if ((bool)method.Invoke(this, null)) {
+				if (node.IsLeaf()) inTree = false;
+				else {
+					node = node.YesPtr;
+				}
+			} else {
+				if (node.IsLeaf()) inTree = false;
+				else {
+					node = node.NoPtr;
+				}
+			}
+		}
+	}
+
+
 }
