@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
 	public static GameManager singleton;
 
 	public GameObject CITIZEN;
+
 	public int CITIZENS = 10;
 	public float SPAWN_RATE = 0.1f;
+	public static float HALT_DISTANCE = 10.0f;
 
 	private const string FILE_LOCATION = "Assets/Scripts/DecisionTrees/";
 	private string citizenTreePath;

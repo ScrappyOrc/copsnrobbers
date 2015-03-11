@@ -66,12 +66,12 @@ public class Citizen : Character
 			if (money < script.MONEY_AMOUNT)
 			{
 				GameObject bank = City.GetRandom(City.banks);
-				QueueAction(new Seek(bank, 10));
+				QueueAction(new Seek(bank, GameManager.HALT_DISTANCE));
 				QueueAction(new Shop(bank.GetComponent<Building>()));
 			}
 
 			// Move to and then get in line at the shop
-			QueueAction(new Seek(shop, 10));
+			QueueAction(new Seek(shop, GameManager.HALT_DISTANCE));
 			QueueAction(new Shop(script));
 		}
 	}
@@ -166,7 +166,7 @@ public class Citizen : Character
 		if ((targetBank.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
 		{
 			targetBuilding = targetBank.GetComponent<Building>();
-			QueueAction(new Seek(targetBank, 10));
+			QueueAction(new Seek(targetBank, GameManager.HALT_DISTANCE));
 			Debug.Log("I need to go to the bank!");
 			return true;
 		}
@@ -195,7 +195,7 @@ public class Citizen : Character
 		Debug.Log((targetShop.transform.position - this.transform.position).sqrMagnitude);
         if ((targetShop.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
 		{
-			QueueAction(new Seek(targetShop, 10));
+			QueueAction(new Seek(targetShop, GameManager.HALT_DISTANCE));
 			Debug.Log("Lets go shopping!");
 			return true;
 		}
