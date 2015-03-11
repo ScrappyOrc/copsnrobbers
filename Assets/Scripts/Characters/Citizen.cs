@@ -193,7 +193,7 @@ public class Citizen : Character
     private bool LookForShop()
     {
         //Debug.Log("I want to go shopping, I'll find a shop");
-		Debug.Log((targetShop.transform.position - this.transform.position).sqrMagnitude);
+		//Debug.Log((targetShop.transform.position - this.transform.position).sqrMagnitude);
         if ((targetShop.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
 		{
 			QueueAction(new Seek(targetShop, GameManager.HALT_DISTANCE));
