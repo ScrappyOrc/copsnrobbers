@@ -56,7 +56,7 @@ public class FSMachine : MonoBehaviour {
 				for (int j = 0; j < nInputs; j++)
 					trans [i, j] = int.Parse (nums [j]);
 			}
-			//EchoFSM ();	// See it verything got into the tables correctly
+			//EchoFSM ();	// See if everything got into the tables correctly
 		}
 	}
 	

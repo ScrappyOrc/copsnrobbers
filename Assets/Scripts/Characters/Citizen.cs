@@ -150,14 +150,15 @@ public class Citizen : Character
 	}
 
 	/// <summary>
-	/// am i in line?
+	/// Am I in line?
 	/// </summary>
-	private bool CheckInLine() {
+	private bool CheckInLine()
+	{
 		return true;
 	}
 
 	/// <summary>
-	/// am I looking for a bank?
+	/// Am I looking for a bank?
 	/// </summary>
     private bool LookForBank()
     {
@@ -204,7 +205,7 @@ public class Citizen : Character
 	}
 
 	/// <summary>
-	/// Should I start wandering around
+	/// Start wandering around
 	/// </summary>
     private bool StartWander()
     {
@@ -214,6 +215,9 @@ public class Citizen : Character
         return true;
 	}
 
+	/// <summary>
+	/// Get in line at a shop.
+	/// </summary>
     private bool GetInLine()
     {
 		QueueAction(new Shop(targetBuilding));
