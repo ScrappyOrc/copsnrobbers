@@ -119,7 +119,7 @@ public class Character : MonoBehaviour {
 	}
 
 
-	public virtual void MakeDecision() {
+	/*public virtual void MakeDecision() {
 		DecisionTree.Node node = dTree.Root;
 		bool inTree = true;
 		while (inTree) {
@@ -136,7 +136,7 @@ public class Character : MonoBehaviour {
 				}
 			}
 		}
-	}
+	}*/
 
 
 }

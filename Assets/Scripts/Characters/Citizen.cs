@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Reflection;
+//using System.Reflection;
+//using System;
+
 
 /// <summary>
 /// Represents a general NPC that wanders around the city or gets in 
@@ -10,6 +12,8 @@ public class Citizen : Character
 {
 	// Max money a citizen can start with
 	public float MAX_MONEY = 1000.0f;
+    GameObject targetShop;
+	Building targetBuilding;
 
 	/// <summary>
 	/// Characters start of wandering about the city
@@ -18,9 +22,9 @@ public class Citizen : Character
 	{
 		type = STEERING_TYPE.NONE;
 		base.Start ();
+		money = MAX_MONEY * UnityEngine.Random.value;
+		Decide ();
 
-		money = MAX_MONEY * Random.value;
-		Old_Decide ();
 	}
 
 	/// <summary>
@@ -32,7 +36,7 @@ public class Citizen : Character
 
 		if (this.actionQueue.Count == 0) 
 		{
-			Old_Decide ();
+			Decide ();
 		}
 	}
 
@@ -43,7 +47,7 @@ public class Citizen : Character
 	private void Old_Decide() 
 	{
 		// Wander around the city looking for something to do
-		if (Random.value < 0.7)
+		if (UnityEngine.Random.value < 0.7)
 		{
 			QueueAction(new Wander(4));
 			QueueAction(new Idle(2));
@@ -79,29 +83,54 @@ public class Citizen : Character
 
 	// this is here because we weren't sure if the parent would be able to access the child's functions through reflection
 	// maybe it can? try later
-	public override void MakeDecision() {
-		DecisionTree.Node node = dTree.Root;
-		bool inTree = true;
-		while (inTree) {
-			MethodInfo method = this.GetType().GetMethod(node.Data);
-			if ((bool)method.Invoke(this, null)) {
-				if (node.IsLeaf()) inTree = false;
-				else {
-					node = node.YesPtr;
-				}
-			} else {
-				if (node.IsLeaf()) inTree = false;
-				else {
-					node = node.NoPtr;
-				}
-			}
-		}
+	public void MakeDecision() {
+        DecisionTree.Node node = dTree.Root;
+        bool inTree = true;
+        while (inTree)
+        {
+            bool result = true;
+            switch (node.Data)
+            {
+                case "Chance":
+                    result = Chance();
+                    break;
+                case "StartWander":
+                    result = StartWander();
+                    break;
+                case "HaveMoney":
+                    result = HaveMoney();
+                    break;
+                case "LookForBank":
+                    result = LookForBank();
+                    break;
+                case "CheckInLine":
+                    result = CheckInLine();
+                    break;
+                case "LookForShop":
+                    result = LookForShop();
+                    break;
+                case "GetInLine":
+                    result = GetInLine();
+                    break;
+
+                default:
+                    break;
+            }
+            if (node.IsLeaf()) inTree = false;
+            else
+            {
+                if (result) node = node.YesPtr;
+                else node = node.NoPtr;
+            }
+        }
 	}
+
+
 
 	/// <summary>
 	/// Am I shopping
 	/// </summary>
-	private bool TryShop() {
+	private bool AmIShopping() {
 		
 		return true;
 	}
@@ -109,8 +138,13 @@ public class Citizen : Character
 	/// <summary>
 	/// Do I have money?
 	/// </summary>
-	private bool HaveMoney() {
-		return true;
+    private bool HaveMoney()
+    {
+        //Debug.Log("Checking to see if I have money");
+        targetShop = City.GetRandom(City.shops);
+		targetBuilding = targetShop.GetComponent<Building>();
+		if (money < targetBuilding.MONEY_AMOUNT) return false;
+        else return true; 
 	}
 
 	/// <summary>
@@ -123,28 +157,51 @@ public class Citizen : Character
 	/// <summary>
 	/// am I looking for a bank?
 	/// </summary>
-	private bool LookForBank() {
-		return true;
+    private bool LookForBank()
+    {
+        //Debug.Log("I don't have money, I'm going to the bank");
+        GameObject bank = City.GetRandom(City.banks);
+        QueueAction(new Seek(bank, 10));
+        QueueAction(new Shop(bank.GetComponent<Building>()));
+        return true;
 	}
 
 	/// <summary>
 	/// CHANCE!
 	/// </summary>
-	private bool Chance() {
-		return true;
+    private bool Chance()
+    {
+        //Debug.Log ("Chance time!");
+        if (UnityEngine.Random.value < 0.7)
+            return true;
+        else
+            return false;
 	}
 
 	/// <summary>
-	/// Am I looking for a shop
+    /// Move to and then get in line at the shop
 	/// </summary>
-	private bool LookForShop() {
-		return true;
+    private bool LookForShop()
+    {
+        //Debug.Log("I want to go shopping, I'll find a shop");
+        QueueAction(new Seek(targetShop, 10));
+        QueueAction(new Shop(targetBuilding));
+        return true;
 	}
 
 	/// <summary>
 	/// Should I start wandering around
 	/// </summary>
-	private bool StartWander() {
-		return true;
+    private bool StartWander()
+    {
+        //Debug.Log("Meh, maybe I'll wander around for a while");
+        QueueAction(new Wander(4));
+        QueueAction(new Idle(2));
+        return true;
 	}
+
+    private bool GetInLine()
+    {
+        return true;
+    }
 }

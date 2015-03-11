@@ -50,7 +50,7 @@ public class City {
 	{
 		//Debug.Log ("R:" + Random.value);
 		//Debug.Log (list.Length);
-		return list [(int)(Random.value * list.Length)];
+		return list [(int)(UnityEngine.Random.value * list.Length)];
 	}
 
 	/// <summary>
