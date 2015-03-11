@@ -1,0 +1,15 @@
+IHasTarget
+IIsCrowded
+IIsImpatient
+IIsReckless
+LRob
+LForgetTarget
+LStalkTarget
+LRob
+IHasRobbed
+LRun
+IIsChaotic
+LGetNearest
+IChance
+LGetTarget
+LWander

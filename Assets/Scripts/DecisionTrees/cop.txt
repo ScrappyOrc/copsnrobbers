@@ -1,0 +1,13 @@
+IHasCall
+IRobberNearby
+IManyPoliceOnCall
+LStopRobber
+IBiggerCrime
+LStopRobber
+LHeadToCall
+LHeadToCall
+IRobberNearby
+LStopRobber
+IPanicNearby
+LLookForCause
+LPatrol
