@@ -12,8 +12,10 @@ public class Citizen : Character
 {
 	// Max money a citizen can start with
 	public float MAX_MONEY = 1000.0f;
-    GameObject targetShop;
+	public float shoppingRange = 100.0f;
+	GameObject targetShop;
 	Building targetBuilding;
+	GameObject targetBank;
 
 	/// <summary>
 	/// Characters start of wandering about the city
@@ -160,10 +162,16 @@ public class Citizen : Character
     private bool LookForBank()
     {
         //Debug.Log("I don't have money, I'm going to the bank");
-        GameObject bank = City.GetRandom(City.banks);
-        QueueAction(new Seek(bank, 10));
-        QueueAction(new Shop(bank.GetComponent<Building>()));
-        return true;
+        targetBank = City.GetRandom(City.banks);
+		if ((targetBank.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
+		{
+			targetBuilding = targetBank.GetComponent<Building>();
+			QueueAction(new Seek(targetBank, 5));
+			Debug.Log("I need to go to the bank!");
+			return true;
+		}
+		Debug.Log("That Bank is way too far!");
+		return false;
 	}
 
 	/// <summary>
@@ -184,9 +192,15 @@ public class Citizen : Character
     private bool LookForShop()
     {
         //Debug.Log("I want to go shopping, I'll find a shop");
-        QueueAction(new Seek(targetShop, 10));
-        QueueAction(new Shop(targetBuilding));
-        return true;
+		Debug.Log((targetShop.transform.position - this.transform.position).sqrMagnitude);
+        if ((targetShop.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
+		{
+			QueueAction(new Seek(targetShop, 3));
+			Debug.Log("Lets go shopping!");
+			return true;
+		}
+		Debug.Log("That store is way too far!");
+		return false;
 	}
 
 	/// <summary>
@@ -202,6 +216,7 @@ public class Citizen : Character
 
     private bool GetInLine()
     {
+		QueueAction(new Shop(targetBuilding));
         return true;
     }
 }

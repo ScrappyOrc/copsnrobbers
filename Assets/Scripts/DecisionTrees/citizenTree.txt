@@ -1,5 +1,9 @@
 IChance
 LStartWander
 IHaveMoney
-LLookForBank
-LLookForShop
+ILookForShop
+LGetInLine
+LStartWander
+ILookForBank
+LGetInLine
+LStartWander
