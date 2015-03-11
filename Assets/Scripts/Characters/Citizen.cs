@@ -166,7 +166,7 @@ public class Citizen : Character
 		if ((targetBank.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
 		{
 			targetBuilding = targetBank.GetComponent<Building>();
-			QueueAction(new Seek(targetBank, 5));
+			QueueAction(new Seek(targetBank, 10));
 			Debug.Log("I need to go to the bank!");
 			return true;
 		}
@@ -195,7 +195,7 @@ public class Citizen : Character
 		Debug.Log((targetShop.transform.position - this.transform.position).sqrMagnitude);
         if ((targetShop.transform.position - this.transform.position).sqrMagnitude < shoppingRange)
 		{
-			QueueAction(new Seek(targetShop, 3));
+			QueueAction(new Seek(targetShop, 10));
 			Debug.Log("Lets go shopping!");
 			return true;
 		}
