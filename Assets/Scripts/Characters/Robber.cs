@@ -69,7 +69,7 @@ public class Robber : Character
 				result = GetTarget();
 				break;
 			case "Wander":
-				result = Wander();
+				result = StartWander();
 				break;
 				
 			default:
@@ -233,9 +233,10 @@ public class Robber : Character
 	/// <summary>
 	/// Wander about the city
 	/// </summary>
-	private bool Wander() 
+	private bool StartWander() 
 	{
 		QueueAction(new Wander(4));
+		QueueAction(new Idle(2));
 		return true;
 	}
 }
