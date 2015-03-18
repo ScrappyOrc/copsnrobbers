@@ -29,9 +29,6 @@ public class Follow : Action
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply(Character character) 
 	{
-		// Debug - let use see what the character is doing
-		character.type = STEERING_TYPE.FOLLOW;
-
 		if ((character.transform.position - target.transform.position).sqrMagnitude > distance * distance) 
 		{
 			character.Agent.SetDestination(target.transform.position);

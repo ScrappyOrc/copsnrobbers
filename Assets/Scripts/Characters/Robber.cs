@@ -13,6 +13,11 @@ public class Robber : Character
 	override protected void Start () 
 	{
 		base.Start ();
+
+		// Despite being robbers, they appear
+		// as citizens to begin with to avoid
+		// immediately being arrested for no reason
+		type = CharacterType.CITIZEN;
 	}
 	
 	// Update is called once per frame
@@ -129,7 +134,10 @@ public class Robber : Character
 	private bool Rob()
 	{
 		// TODO rob the store
-		return false;
+
+		hasRobbed = true;
+		type = CharacterType.ROBBER;
+		return true;
 	}
 
 	/// <summary>

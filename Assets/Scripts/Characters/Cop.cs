@@ -7,6 +7,7 @@ public class Cop : Character
 	override protected void Start () 
 	{
 		base.Start ();
+		type = CharacterType.COP;
 	}
 	
 	// Update is called once per frame

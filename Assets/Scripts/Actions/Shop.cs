@@ -37,7 +37,6 @@ public class Shop : Action {
 		}
 
 		// Debug - let use see what the character is doing
-		character.type = STEERING_TYPE.SHOP;
 		GameObject go = character.gameObject;
 
 		// Need to get in line

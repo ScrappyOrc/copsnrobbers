@@ -2,16 +2,11 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-public enum STEERING_TYPE
-{
-	FLEE,
-	SEEK,
-	FOLLOW,
-    WANDER,
-	IDLE,
-	SHOP,
-	NONE
-};
+public enum CharacterType {
+	COP,
+	ROBBER,
+	CITIZEN
+}
 
 /// <summary>
 /// The base class for AI characters that are controlled by
@@ -22,12 +17,13 @@ public class Character : MonoBehaviour {
 	protected readonly Queue<Action> actionQueue = new Queue<Action>();
 	protected NavMeshAgent agent;
 
-	public STEERING_TYPE type; 
 	public GameObject target;
 	
 	public DecisionTree dTree;
 
     public int wanderBlocks = 3;
+
+	protected CharacterType type;
 
 	// Amount of money the character has
 	public float money = 0;
@@ -47,15 +43,6 @@ public class Character : MonoBehaviour {
 	virtual protected void Start ()
 	{
 		agent = GetComponent<NavMeshAgent>();
-
-		if(type == STEERING_TYPE.SEEK)
-			QueueAction(new Seek(target.transform.position));
-		//else if(type == STEERING_TYPE.FLEE)
-		//	QueueAction(new Flee(target, 50.0f));
-        else if(type == STEERING_TYPE.WANDER)
-            QueueAction(new Wander(wanderBlocks));
-		else if (type == STEERING_TYPE.FOLLOW)
-			QueueAction(new Follow(target, 1.0f));
 	}
 
 	/// <summary>
@@ -92,12 +79,14 @@ public class Character : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
+		/*
 		if(type == STEERING_TYPE.FLEE && col.gameObject.GetComponent<NavMeshAgent>() != null)// && col.gameObject.name == target.gameObject.name)
 		{
 			QueueAction(new Flee(col.gameObject, 50.0f));
 			Debug.Log("Flee collided with " + col.gameObject.name + " and is fleeing from it");
 
 		}
+		*/
 	}
 
 	/// <summary>

@@ -22,11 +22,10 @@ public class Citizen : Character
 	/// </summary>
 	override protected void Start () 
 	{
-		type = STEERING_TYPE.NONE;
 		base.Start ();
 		money = MAX_MONEY * UnityEngine.Random.value;
 		Decide ();
-
+		type = CharacterType.CITIZEN;
 	}
 
 	/// <summary>
