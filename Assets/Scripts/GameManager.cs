@@ -58,20 +58,62 @@ public class GameManager : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Gets the list of all characters of a given type
+	/// </summary>
+	/// <returns>The list of characters</returns>
+	/// <param name="type">Type of character to get the list of</param>
+	public GameObject[] GetList(CharacterType type)
+	{
+		switch (type) 
+		{
+		case CharacterType.CITIZEN:
+			return citizenList;
+		case CharacterType.COP:
+			return copList;
+		case CharacterType.ROBBER:
+			return robberList;
+		default:
+			return null;
+		}
+	}
+
+	/// <summary>
+	/// Gets the closest character matching the given type
+	/// to the original character
+	/// </summary>
+	/// <returns>The closest character</returns>
+	/// <param name="type">Type of character to look for</param>
+	/// <param name="source">Character looking for the nearest</param>
+	public GameObject GetClosest(CharacterType type, Character source)
+	{
+		GameObject[] list = GetList (type);
+		float dSq = float.MaxValue;
+
+		GameObject sgo = source.gameObject;
+		GameObject result = null;
+		Vector3 pos = sgo.transform.position;
+		foreach (GameObject go in list) 
+		{
+			if (go == sgo || go.GetComponent<Character>().Type != type) continue;
+			float d = (go.transform.position - pos).sqrMagnitude;
+			if (d < dSq) 
+			{
+				dSq = d;
+				result = go;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
 	/// Counts the nearby characters matching the given type
 	/// </summary>
 	/// <returns>The nearby characters</returns>
 	/// <param name="location">Location to check around</param>
 	/// <param name="radius">Radius to consider close</param>
-	public int countNearby(CharacterType type, Vector3 location, float radius)
+	public int CountNearby(CharacterType type, Vector3 location, float radius)
 	{
-		GameObject[] list;
-		if (type == CharacterType.CITIZEN)
-			list = citizenList;
-		else if (type == CharacterType.ROBBER)
-			list = robberList;
-		else if (type == CharacterType.COP)
-			list = copList;
+		GameObject[] list = GetList (type);
 
 		float rSq = radius * radius;
 		int count = 0;

@@ -12,10 +12,19 @@ public class Robber : Character
 	// How many cops are chasing the robber
 	private int copsOnTail = 0;
 
+	// The severity of the robbery
+	private int crimeLevel = 0;
+
 	// How many cops are chasing the robber
 	public int CopsOnTail {
 		get { return copsOnTail; }
 		set { copsOnTail = value; }
+	}
+
+	// The severity of the robbery
+	// This is "0" when hasn't robbed anything
+	public int CrimeLevel {
+		get { return crimeLevel; }
 	}
 
 	// Use this for initialization
@@ -113,8 +122,8 @@ public class Robber : Character
 	/// <returns>True if crowded, false otherwise</returns>
 	private bool IsCrowded()
 	{
-		return GameManager.singleton.countNearby (CharacterType.COP, transform.position, 50) > 0
-			|| GameManager.singleton.countNearby (CharacterType.CITIZEN, transform.position, 50) > 10;
+		return GameManager.singleton.CountNearby (CharacterType.COP, transform.position, 50) > 0
+			|| GameManager.singleton.CountNearby (CharacterType.CITIZEN, transform.position, 50) > 10;
 	}
 
 	/// <summary>
@@ -142,7 +151,7 @@ public class Robber : Character
 	/// </summary>
 	private bool Rob()
 	{
-		// TODO rob the store
+		// TODO rob the store and set crime level
 
 		hasRobbed = true;
 		type = CharacterType.ROBBER;

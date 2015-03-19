@@ -28,6 +28,11 @@ public class Character : MonoBehaviour {
 	// Amount of money the character has
 	public float money = 0;
 
+	// Type of the character
+	public CharacterType Type {
+		get { return type; }
+	}
+
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
 	/// to handle controlling movement patterns

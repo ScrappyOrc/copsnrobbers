@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Cop : Character 
 {
+	private Robber robber;
+	private Robber nearbyRobber;
+
 	// Use this for initialization
 	override protected void Start () 
 	{
@@ -58,20 +61,20 @@ public class Cop : Character
 
 	private bool HasCall()
 	{	
-		// TODO check if I have a call or not
-		return false;
+		return robber != null;
 	}
 	
 	private bool RobberNearby()
 	{
-		// TODO Spherical raycast or similar to check
-		return false;
+		GameObject robber = GameManager.singleton.GetClosest (CharacterType.ROBBER, this);
+		if (robber != null)
+			nearbyRobber = robber.GetComponent<Robber> ();
+		return robber != null && nearbyRobber.CrimeLevel > 0;
 	}
 	
 	private bool ManyPoliceOnCall()
 	{
-		// TODO implement count of active police
-		return false;
+		return robber.CopsOnTail > 3;
 	}
 	
 	private bool StopRobber()
@@ -82,8 +85,7 @@ public class Cop : Character
 	
 	private bool BiggerCrime()
 	{
-		// TODO check if this is the current biggest crime
-		return false;
+		return nearbyRobber.CrimeLevel > robber.CrimeLevel;
 	}
 	
 	private bool HeadToCall()
