@@ -9,6 +9,15 @@ public class Robber : Character
 	// Whether or not the robber finished robbing something
 	private bool hasRobbed = false;
 
+	// How many cops are chasing the robber
+	private int copsOnTail = 0;
+
+	// How many cops are chasing the robber
+	public int CopsOnTail {
+		get { return copsOnTail; }
+		set { copsOnTail = value; }
+	}
+
 	// Use this for initialization
 	override protected void Start () 
 	{
@@ -104,8 +113,8 @@ public class Robber : Character
 	/// <returns>True if crowded, false otherwise</returns>
 	private bool IsCrowded()
 	{
-		// TODO actually check for nearby cops or many nearby citizens
-		return false;
+		return GameManager.singleton.countNearby (CharacterType.COP, transform.position, 50) > 0
+			|| GameManager.singleton.countNearby (CharacterType.CITIZEN, transform.position, 50) > 10;
 	}
 
 	/// <summary>

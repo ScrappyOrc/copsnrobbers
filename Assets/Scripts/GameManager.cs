@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 	/// <returns>The nearby characters</returns>
 	/// <param name="location">Location to check around</param>
 	/// <param name="radius">Radius to consider close</param>
-	int countNearby(CharacterType type, Vector3 location, float radius)
+	public int countNearby(CharacterType type, Vector3 location, float radius)
 	{
 		GameObject[] list;
 		if (type == CharacterType.CITIZEN)
