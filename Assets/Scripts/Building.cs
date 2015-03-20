@@ -76,9 +76,9 @@ public class Building : MonoBehaviour {
 		cashRegister += MONEY_AMOUNT;
 	}
 
-	public int Rob()
+	public float Rob()
 	{
-		int temp = cashRegister;
+		float temp = cashRegister;
 		cashRegister = 0;
 		return temp;
 	}
