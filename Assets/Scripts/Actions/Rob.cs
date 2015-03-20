@@ -5,7 +5,7 @@ using System.Collections;
 /// Represents a complex action where the character gets in line at a building
 /// and will wait until they can spend/buy money.
 /// </summary>
-public class Shop : Action {
+public class Rob : Action {
 	
 	private Building building;
 	private bool done = false;
@@ -17,7 +17,7 @@ public class Shop : Action {
 	/// spends or receives money after they wait.
 	/// </summary>
 	/// <param name="building">building to shop at</param>
-	public Shop(Building building) 
+	public Rob(Building building) 
 	{
 		this.building = building;
 		this.heistTime = building.ROB_TIME;
