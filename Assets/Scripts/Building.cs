@@ -11,14 +11,25 @@ public class Building : MonoBehaviour {
 	// Positive gives money (banks)
 	// Negative takes money (shops)
 	public float MONEY_AMOUNT = 200.0f;
-
+	
 	// The time it takes to process a character's transaction
 	// They will wait this amount of time while first in line before
 	// spending/getting money and leaving the line
 	public float PROCESS_TIME = 5.0f;
 
+	// The time it takes for a robber to rob from this store
+	public float ROB_TIME = 10.0f;
+
+	// At higher security levels, the stores will be more likely to respond to the robbers
+	// this could mean having a security guard on duty
+	// or having a silent alarm, or maybe a gun behind the desk?
+	public int SECURITY_LEVEL = 1;
+
 	// Space between two waiting characters in line
 	public float LINE_SPACE = 0.5f;
+
+	// money in the cash register
+	public float cashRegister = 0.0f;
 
 	// Characters currently in line
 	private readonly List<GameObject> line = new List<GameObject>();
@@ -60,6 +71,18 @@ public class Building : MonoBehaviour {
 		line.RemoveAt (0);
 	}
 
+	public void Buy()
+	{
+		cashRegister += MONEY_AMOUNT;
+	}
+
+	public int Rob()
+	{
+		int temp = cashRegister;
+		cashRegister = 0;
+		return temp;
+	}
+
 	/// <summary>
 	/// Gets the position the character should be waiting at while in line
 	/// </summary>
@@ -86,6 +109,16 @@ public class Building : MonoBehaviour {
 		default:
 			return transform.position + index * LINE_SPACE * transform.forward;
 		}
+	}
+
+	/// <summary>
+	/// Gets the rob position.
+	/// </summary>
+	/// <returns>The position that the robber will stand to rob the building</returns>
+	/// <param name="character">the robber</param>
+	public Vector3 GetRobPosition(GameObject character)
+	{
+		return transform.position - LINE_SPACE * transform.forward;
 	}
 
 	/// <summary>
