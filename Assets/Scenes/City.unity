@@ -12777,7 +12777,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
   PROCESS_TIME: 20
+  ROB_TIME: 10
+  SECURITY_LEVEL: 1
   LINE_SPACE: .5
+  cashRegister: 0
 --- !u!1 &423774905
 GameObject:
   m_ObjectHideFlags: 0
@@ -19829,7 +19832,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
   PROCESS_TIME: 20
+  ROB_TIME: 10
+  SECURITY_LEVEL: 1
   LINE_SPACE: .5
+  cashRegister: 0
 --- !u!1 &651699493
 GameObject:
   m_ObjectHideFlags: 0
@@ -20374,6 +20380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CITIZEN: {fileID: 199704, guid: 9b85443d1147ba141b02339430f8022b, type: 2}
   CITIZENS: 100
+  ROBBERS: 1
+  COPS: 5
   SPAWN_RATE: .100000001
 --- !u!4 &665037318
 Transform:
@@ -21603,7 +21611,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -50
   PROCESS_TIME: 30
+  ROB_TIME: 10
+  SECURITY_LEVEL: 1
   LINE_SPACE: .5
+  cashRegister: 0
 --- !u!1 &717957564
 GameObject:
   m_ObjectHideFlags: 0
@@ -41250,7 +41261,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -15
   PROCESS_TIME: 20
+  ROB_TIME: 10
+  SECURITY_LEVEL: 1
   LINE_SPACE: .5
+  cashRegister: 0
 --- !u!1 &1272299379
 GameObject:
   m_ObjectHideFlags: 0
@@ -54962,7 +54976,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -30
   PROCESS_TIME: 20
+  ROB_TIME: 10
+  SECURITY_LEVEL: 1
   LINE_SPACE: .5
+  cashRegister: 0
 --- !u!1 &1707132643
 GameObject:
   m_ObjectHideFlags: 0
