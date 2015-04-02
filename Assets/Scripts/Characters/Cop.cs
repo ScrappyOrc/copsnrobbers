@@ -79,7 +79,14 @@ public class Cop : Character
 	
 	private bool StopRobber()
 	{
-		// TODO Seek target robber and "stop" him
+		// TODO "Stop" robber when you reach him
+
+		if(robber != null)
+		{
+			QueueAction(new Seek(robber.transform.position));
+			return true;
+		}
+
 		return false;
 	}
 	
