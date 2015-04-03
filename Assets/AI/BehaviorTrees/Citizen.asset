@@ -19,33 +19,34 @@ MonoBehaviour:
       usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; priority=&quot;&quot;
       name=&quot;Shop&quot; debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot;
       priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
-      name=&quot;action&quot; debugbreak=&quot;False&quot; classname=&quot;RainFindShop&quot;
+      name=&quot;Find Shop&quot; debugbreak=&quot;False&quot; classname=&quot;RainFindShop&quot;
       /&gt;&lt;action repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;Has Money&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainHasMoney&quot; /&gt;&lt;action
       repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;Move To Building&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainMoveToBuilding&quot; /&gt;&lt;action
       repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;Get In Line&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainGetInLine&quot; /&gt;&lt;action
       repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;Shop&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainShop&quot; /&gt;&lt;/sequencer&gt;&lt;sequencer
       usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; priority=&quot;&quot;
       name=&quot;Bank&quot; debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot;
       priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
-      name=&quot;action&quot; debugbreak=&quot;False&quot; classname=&quot;RainFindBank&quot;
+      name=&quot;Find Bank&quot; debugbreak=&quot;False&quot; classname=&quot;RainFindBank&quot;
       /&gt;&lt;action repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
-      classname=&quot;RainMoveToBuilding&quot; /&gt;&lt;action repeatuntil=&quot;&quot;
-      priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;&quot;
-      name=&quot;action&quot; debugbreak=&quot;False&quot; classname=&quot;RainGetInLine&quot;
-      /&gt;&lt;action repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
-      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
+      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;Move To Building&quot;
+      debugbreak=&quot;False&quot; classname=&quot;RainMoveToBuilding&quot; /&gt;&lt;action
+      repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;Get In Line&quot;
+      debugbreak=&quot;False&quot; classname=&quot;RainGetInLine&quot; /&gt;&lt;action
+      repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;Shop&quot; debugbreak=&quot;False&quot;
       classname=&quot;RainShop&quot; /&gt;&lt;/sequencer&gt;&lt;action repeatuntil=&quot;&quot;
       priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
-      name=&quot;action&quot; debugbreak=&quot;False&quot; classname=&quot;RainWander&quot;
+      name=&quot;Wander&quot; debugbreak=&quot;False&quot; classname=&quot;RainWander&quot;
       /&gt;&lt;/selector&gt;&lt;/behaviortree&gt;" type="System.String" id="treeData"
       /><field type="System.Array" id="treeBindings" elementtype="System.String" /></fields><references
       /></scriptableobject>
