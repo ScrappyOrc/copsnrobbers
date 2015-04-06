@@ -16,6 +16,7 @@ public class Character : MonoBehaviour {
 
 	protected readonly Queue<Action> actionQueue = new Queue<Action>();
 	protected NavMeshAgent agent;
+	private bool running = false;
 
 	public GameObject target;
 	
@@ -27,6 +28,11 @@ public class Character : MonoBehaviour {
 
 	// Amount of money the character has
 	public float money = 0;
+
+	public bool IsRunning {
+		get { return running; }
+		set { running = value; }
+	}
 
 	// Type of the character
 	public CharacterType Type {
