@@ -33,6 +33,11 @@ public class Character : MonoBehaviour {
 		get { return type; }
 	}
 
+	// Checks if the queue is empty
+	public bool QueueEmpty {
+		get { return actionQueue.Count == 0; }
+	}
+
 	/// <summary>
 	/// Retrieves the NavMeshAgent component of the character
 	/// to handle controlling movement patterns
