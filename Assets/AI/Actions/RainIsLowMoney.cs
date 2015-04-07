@@ -15,7 +15,6 @@ public class RainIsLowMoney : ActionBase
 	/// </summary>
 	public override ActionResult Execute()
 	{
-		Debug.Log("Low? " + character.lowMoney);
 		return character.lowMoney ? ActionResult.SUCCESS : ActionResult.FAILURE;
 	}
 }
