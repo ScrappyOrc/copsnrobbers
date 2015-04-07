@@ -4,21 +4,24 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
+/// <summary>
+/// Action for moving to a targeted building
+/// </summary>
 [RAINAction]
-public class RainMoveToBuilding : RAINAction
+public class RainMoveToBuilding : ActionBase
 {
-    public override void Start(RAIN.Core.AI ai)
-    {
-        base.Start(ai);
-    }
+	/// <summary>
+	/// Grabs a target bank if the character is within an acceptable range
+	/// </summary>
+	public override ActionResult Execute()
+	{
+		// Move to the building
+		if (character.target != null) {
+			character.QueueAction(new Seek(character.target.transform, GameManager.HALT_DISTANCE));
+			return ActionResult.RUNNING;
+		}
 
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-        return ActionResult.SUCCESS;
-    }
-
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
-    }
+		// No building to move to
+		else return ActionResult.FAILURE;
+	}
 }

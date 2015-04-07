@@ -4,21 +4,25 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
+/// <summary>
+/// Action for shopping at a targeted building
+/// </summary>
 [RAINAction]
-public class RainGetInLine : RAINAction
+public class RainGetInLine : ActionBase
 {
-    public override void Start(RAIN.Core.AI ai)
-    {
-        base.Start(ai);
-    }
+	/// <summary>
+	/// Gets in line at the target building
+	/// </summary>
+	public override ActionResult Execute()
+	{
+		// Get in line at the target building
+		if (character.target != null) {
+			character.QueueAction(new Shop(character.target));
+			character.lowMoney = false;
+			return ActionResult.RUNNING;
+		}
 
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-        return ActionResult.SUCCESS;
-    }
-
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
-    }
+		// Didn't have a target
+		else return ActionResult.FAILURE;
+	}
 }

@@ -17,10 +17,7 @@ public class GameManager : MonoBehaviour
 	public float SPAWN_RATE = 0.1f;
 	public static float HALT_DISTANCE = 10.0f;
 
-	private const string FILE_LOCATION = "Assets/Scripts/DecisionTrees/";
 	private string citizenTreePath;
-
-	private DecisionTree[] dTrees;
 
 	private GameObject[] citizenList;
 	private GameObject[] robberList;
@@ -47,12 +44,6 @@ public class GameManager : MonoBehaviour
 		citizenList = new GameObject[CITIZENS];
 		robberList = new GameObject[ROBBERS];
 		copList = new GameObject[COPS];
-
-		dTrees = new DecisionTree[3];
-
-		FileInfo file = new FileInfo("Assets/Scripts/DecisionTrees/citizenTree.txt");
-		Debug.Log(file.FullName);
-		Initialize();
 
 		City.Initialize();
 	}
@@ -127,13 +118,6 @@ public class GameManager : MonoBehaviour
 		return count;
 	}
 
-	void Initialize()
-	{
-		citizenTreePath = FILE_LOCATION + "citizenTree.txt";
-
-		dTrees[0] = new DecisionTree(citizenTreePath);
-	}
-
 	void Update() 
 	{
 		if (CITIZENS > 0) 
@@ -146,7 +130,6 @@ public class GameManager : MonoBehaviour
 				GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
 				GameObject spawn = City.GetRandom(City.houses);
 				citizen.transform.position = spawn.transform.position;
-				citizen.GetComponent<Citizen>().dTree = dTrees[0];
 				citizenList[citizenList.Length - CITIZENS] = citizen;
 
 				CITIZENS--;

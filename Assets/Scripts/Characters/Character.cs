@@ -18,9 +18,8 @@ public class Character : MonoBehaviour {
 	protected NavMeshAgent agent;
 	private bool running = false;
 
-	public GameObject target;
-	
-	public DecisionTree dTree;
+	public Building target;
+	public bool lowMoney = false;
 
     public int wanderBlocks = 3;
 
@@ -70,26 +69,21 @@ public class Character : MonoBehaviour {
 
 		if(next != null)
 		{
-		// When one action finishes, change to the next
-		if (next.IsDone()) 
-		{
-			actionQueue.Dequeue();
-
-			// Ran out of actions
-			if (actionQueue.Count == 0) 
+			// When one action finishes, change to the next
+			if (next.IsDone()) 
 			{
-				agent.Stop();
-				return;
-			}
+				actionQueue.Dequeue();
 
-			next = actionQueue.Peek();
-		}
-		next.Apply(this);
-		}
-		else
-		{
-			agent.Stop();
-			return;
+				// Ran out of actions
+				if (actionQueue.Count == 0) 
+				{
+					agent.Stop();
+					return;
+				}
+
+				next = actionQueue.Peek();
+			}
+			next.Apply(this);
 		}
 	}
 

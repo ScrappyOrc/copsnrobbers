@@ -12,52 +12,6 @@ public class Cop : Character
 		base.Start ();
 		type = CharacterType.COP;
 	}
-	
-	// Update is called once per frame
-	override protected void Update () 
-	{
-	
-	}
-	
-	public void MakeDecision()
-	{
-		DecisionTree.Node node = dTree.Root;
-		bool inTree = true;
-		while(inTree)
-		{
-			bool result = true;
-			switch (node.Data)
-			{
-			case "HasCall":
-				result = HasCall();
-				break;
-			case "RobberNearby":
-				result = RobberNearby();
-				break;
-			case "ManyPoliceOnCall":
-				result = ManyPoliceOnCall();
-				break;
-			case "StopRobber":
-				result = StopRobber();
-				break;
-			case "BiggerCrime":
-				result = BiggerCrime();
-				break;
-			case "HeadToCall":
-				result = HeadToCall();
-				break;
-			case "PanicNearby":
-				result = PanicNearby();
-				break;
-			case "LookForCause":
-				result = LookForCause();
-				break;
-			case "Patrol":
-				result = Patrol();
-				break;
-			}
-		}
-	}
 
 	/// <summary>
 	/// Do I have a call? (true when has a robber target)

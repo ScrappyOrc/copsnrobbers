@@ -78,7 +78,7 @@ MonoBehaviour:
       type="System.Boolean" id="_useFixedUpdate" /><field type="RAIN.Core.AI" reference="0"
       id="_ai" /></fields><references><reference type="RAIN.Core.AI" refcount="1"
       id="0"><field value="True" type="System.Boolean" id="_isActive" /><field type="UnityEngine.GameObject"
-      id="_body" gameobject="-1" /><field type="RAIN.Memory.BasicMemory" reference="1"
+      id="_body" gameobject="1" /><field type="RAIN.Memory.BasicMemory" reference="1"
       id="_workingMemory" /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind"
       childrenvisible="True" /><field type="RAIN.Motion.BasicMotor" reference="3"
       id="_motor" /><field type="RAIN.Animation.BasicAnimator" reference="4" id="_animator"
@@ -88,7 +88,7 @@ MonoBehaviour:
       /></reference><reference type="RAIN.Memory.BasicMemory" refcount="1" id="1"><field
       type="System.Collections.Generic.List" id="_memoryItems" elementtype="RAIN.Memory.BasicMemory+MemoryItem"
       /></reference><reference type="RAIN.Minds.BasicMind" refcount="1" id="2"><field
-      type="RAIN.BehaviorTrees.BTAsset" id="_behaviorTreeAsset" gameobject="-1" /><field
+      type="RAIN.BehaviorTrees.BTAsset" id="_behaviorTreeAsset" gameobject="0" /><field
       type="System.Collections.Generic.List" id="_behaviorTreeBindings" elementtype="RAIN.BehaviorTrees.BTAssetBinding"
       /></reference><reference type="RAIN.Motion.BasicMotor" refcount="1" id="3"><field
       value="1" type="System.Single" id="_speed" /><field value="180" type="System.Single"
@@ -108,7 +108,9 @@ MonoBehaviour:
       id="_graphTags" elementtype="System.String" /></reference><reference type="RAIN.Perception.BasicSenses"
       refcount="1" id="6"><field type="System.Collections.Generic.List" id="_sensors"
       elementtype="RAIN.Perception.Sensors.RAINSensor" /></reference></references></component>
-    _serializedGameObjects: []
+    _serializedGameObjects:
+    - {fileID: 11400000, guid: 56c31278afd797c4dac78dab56745b46, type: 2}
+    - {fileID: 199704}
     _serializedCustomData: []
 --- !u!114 &11484114
 MonoBehaviour:
@@ -122,10 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  lowMoney: 0
   wanderBlocks: 3
   money: 0
   MAX_MONEY: 1000
-  shoppingRange: 100
 --- !u!136 &13699704
 CapsuleCollider:
   m_ObjectHideFlags: 1

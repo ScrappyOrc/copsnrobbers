@@ -4,24 +4,19 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
+/// <summary>
+/// Basic action that causes a character to move around 
+/// randomly within the city.
+/// </summary>
 [RAINAction]
-public class RainWander : RAINAction
+public class RainWander : ActionBase
 {
-	public int BLOCKS = 4;
-
-    public override void Start(RAIN.Core.AI ai)
+	/// <summary>
+	/// Causes the character to start wandering
+	/// </summary>
+    public override ActionResult Execute()
     {
-        base.Start(ai);
-    }
-
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-		ai.Body.GetComponent<Character> ().QueueAction (new Wander (BLOCKS));
-        return ActionResult.SUCCESS;
-    }
-
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
+		character.QueueAction (new Wander (character.wanderBlocks));
+        return ActionResult.RUNNING;
     }
 }
