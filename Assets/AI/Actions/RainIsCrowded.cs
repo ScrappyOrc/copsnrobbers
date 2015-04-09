@@ -4,21 +4,24 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
+/// <summary>
+/// Condition for checking whether or not the area around the character is crowded.
+/// </summary>
 [RAINAction]
-public class RainIsCrowded : RAINAction
+public class RainIsCrowded : ActionBase
 {
-    public override void Start(RAIN.Core.AI ai)
+	/// <summary>
+	/// Checks whether or not the area around the character is crowded
+	/// </summary>
+    public override ActionResult Execute()
     {
-        base.Start(ai);
-    }
+		// TODO - give the number of cops/citizens a "weight" and measure that
+		// against the character's aggressiveness/craziness/whathaveyou instead
+		// of having flat amounts to make them unique individuals
 
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-        return ActionResult.SUCCESS;
-    }
+		bool crowded = GameManager.singleton.CountNearby(CharacterType.COP, character.transform.position, 50) > 0
+			|| GameManager.singleton.CountNearby(CharacterType.CITIZEN, character.transform.position, 50) > 10;
 
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
+		return crowded ? ActionResult.SUCCESS : ActionResult.FAILURE;
     }
 }

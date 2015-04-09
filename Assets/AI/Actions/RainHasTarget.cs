@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using RAIN.Action;
 using RAIN.Core;
 
+/// <summary>
+/// Condition to check whether or not the character currently is
+/// targeting a building for some reason
+/// </summary>
 [RAINAction]
-public class RainHasTarget : RAINAction
+public class RainHasTarget : ActionBase
 {
-    public override void Start(RAIN.Core.AI ai)
+	/// <summary>
+	/// Checks whether or not the character has a target building
+	/// </summary>
+    public override ActionResult Execute()
     {
-        base.Start(ai);
-    }
-
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-        return ActionResult.SUCCESS;
-    }
-
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
+		return character.target != null ? ActionResult.SUCCESS : ActionResult.FAILURE;
     }
 }

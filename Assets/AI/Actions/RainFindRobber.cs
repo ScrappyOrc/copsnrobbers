@@ -5,20 +5,20 @@ using RAIN.Action;
 using RAIN.Core;
 
 [RAINAction]
-public class RainFindRobber : RAINAction
+public class RainFindRobber : ActionBase
 {
-    public override void Start(RAIN.Core.AI ai)
+    public override ActionResult Execute()
     {
-        base.Start(ai);
-    }
+		List<GameObject> nearby = GameManager.singleton.GetNearby(CharacterType.ROBBER, character.transform.position, 50);
 
-    public override ActionResult Execute(RAIN.Core.AI ai)
-    {
-        return ActionResult.SUCCESS;
-    }
-
-    public override void Stop(RAIN.Core.AI ai)
-    {
-        base.Stop(ai);
+		foreach (GameObject go in nearby) 
+		{
+			if (go.GetComponent<Robber>().CrimeLevel > 0) 
+			{
+				character.follow = go;
+				return ActionResult.SUCCESS;
+			}
+		}
+        return ActionResult.FAILURE;
     }
 }

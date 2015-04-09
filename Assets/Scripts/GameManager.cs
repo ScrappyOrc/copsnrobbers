@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 /// <summary>
 /// Main class for setting up the game and accessing various aspects
@@ -116,6 +117,22 @@ public class GameManager : MonoBehaviour
 			}
 		}
 		return count;
+	}
+
+	public List<GameObject> GetNearby(CharacterType type, Vector3 location, float radius)
+	{
+		GameObject[] list = GetList(type);
+
+		float rSq = radius * radius;
+		List<GameObject> result = new List<GameObject>();
+		foreach (GameObject go in list) 
+		{
+			if (go != null && (go.transform.position - location).sqrMagnitude < rSq)
+			{
+				result.Add(go);
+			}
+		}
+		return result;
 	}
 
 	void Update() 

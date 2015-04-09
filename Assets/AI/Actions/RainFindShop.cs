@@ -12,7 +12,7 @@ public class RainFindShop : ActionBase
 {
 	// How far away the shop can be (squared)
 	// Note: a single block is about 75 units
-	public float shopRange = 100 * 100;
+	public float shopRange = 200 * 200;
 	
 	/// <summary>
 	/// Grabs a target shop if the character is within an acceptable range
@@ -21,8 +21,7 @@ public class RainFindShop : ActionBase
 	{
 		// Get a random shop to go to
 		GameObject targetShop = City.GetRandom(City.shops);
-		if ((targetShop.transform.position - character.transform.position).sqrMagnitude < shopRange
-		    && (character.target == null || targetShop != character.target.gameObject))
+		if ((targetShop.transform.position - character.transform.position).sqrMagnitude < shopRange)
 		{
 			character.target = targetShop.GetComponent<Building>();
 			return ActionResult.SUCCESS;

@@ -19,6 +19,7 @@ public class Character : MonoBehaviour {
 	private bool running = false;
 
 	public Building target;
+	public GameObject follow;
 	public bool lowMoney = false;
 
     public int wanderBlocks = 3;
