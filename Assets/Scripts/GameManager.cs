@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager singleton;
 
 	public GameObject CITIZEN;
+	public GameObject COP;
 
 	public int CITIZENS = 100;
 	public int ROBBERS = 1;
@@ -150,6 +151,22 @@ public class GameManager : MonoBehaviour
 				citizenList[citizenList.Length - CITIZENS] = citizen;
 
 				CITIZENS--;
+			}
+		}
+
+		if (COPS > 0) 
+		{
+			spawnTimer -= Time.deltaTime;
+			while (spawnTimer <= 0) 
+			{
+				spawnTimer += SPAWN_RATE;
+
+				GameObject cop = (GameObject)GameObject.Instantiate(COP);
+				GameObject copSpawn = City.GetRandom(City.houses);
+				cop.transform.position = copSpawn.transform.position;
+				copList[copList.Length - COPS] = cop;
+
+				COPS--;
 			}
 		}
 	}
