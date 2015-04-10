@@ -41,7 +41,10 @@ MonoBehaviour:
       debugbreak=&quot;False&quot; classname=&quot;RainRobShop&quot; /&gt;&lt;action
       repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;GetAway&quot;
-      debugbreak=&quot;False&quot; classname=&quot;RainGetAway&quot; /&gt;&lt;/sequencer&gt;&lt;/selector&gt;&lt;/sequencer&gt;&lt;random
+      debugbreak=&quot;False&quot; classname=&quot;RainGetAway&quot; /&gt;&lt;action
+      repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;GotAway&quot;
+      debugbreak=&quot;False&quot; classname=&quot;RainGotAway&quot; /&gt;&lt;/sequencer&gt;&lt;/selector&gt;&lt;/sequencer&gt;&lt;random
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Maybe&quot; debugbreak=&quot;False&quot;&gt;&lt;action
       weight=&quot;25&quot; repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;PickTarget&quot;

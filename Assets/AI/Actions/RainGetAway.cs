@@ -9,6 +9,7 @@ public class RainGetAway : ActionBase
 {
     public override ActionResult Execute()
     {
-        return ActionResult.SUCCESS;
+		character.QueueAction( new Flee( character.target.gameObject, 150.0f ) );
+        return ActionResult.RUNNING;
     }
 }
