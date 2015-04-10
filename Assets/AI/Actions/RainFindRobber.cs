@@ -9,6 +9,9 @@ public class RainFindRobber : ActionBase
 {
     public override ActionResult Execute()
     {
+		// Start with default of failure for this action
+		ActionResult result = ActionResult.FAILURE;
+
 		// Get all nearby robbers in a certain radius
 		List<GameObject> nearby = GameManager.singleton.GetNearby(CharacterType.ROBBER, character.transform.position, 50);
 
@@ -23,15 +26,13 @@ public class RainFindRobber : ActionBase
 			if (robby != null && robby.CrimeLevel > 0) 
 			{
 				// Start following that robber
-				robby = ((Cop)character).Robber;
 				character.QueueAction(new Follow(robby.gameObject, 5.0f));
 
-				// Stop the robber when we get to him
-				character.QueueAction(new StopCharacter(robby.gameObject));
-
-				return ActionResult.RUNNING;
+				result = ActionResult.RUNNING;
 			}
 		}
-        return ActionResult.FAILURE;
+
+		// Return status/result
+		return result;
     }
 }
