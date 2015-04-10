@@ -118,6 +118,10 @@ public class Character : MonoBehaviour {
 		actionQueue.Enqueue(action);
 	}
 
+	public void InsertAction(Action action) {
+
+	}
+
 
 	/*public virtual void MakeDecision() {
 		DecisionTree.Node node = dTree.Root;
