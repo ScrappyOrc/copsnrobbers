@@ -39,10 +39,6 @@ public class City {
 		houses = GameObject.FindGameObjectsWithTag("House");
 		shops = GameObject.FindGameObjectsWithTag("Shop");
 		banks = GameObject.FindGameObjectsWithTag("Bank");
-
-		Debug.Log("Houses: " + houses.Length);
-		Debug.Log("Shops: " + shops.Length);
-		Debug.Log("Banks: " + banks.Length);
 	}
 
 	/// <summary>

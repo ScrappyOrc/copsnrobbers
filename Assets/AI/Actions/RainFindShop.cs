@@ -22,7 +22,7 @@ public class RainFindShop : ActionBase
 		// Get a random shop to go to
 		GameObject targetShop = City.GetRandom(City.shops);
 		if ((targetShop.transform.position - character.transform.position).sqrMagnitude < shopRange
-		    && (character.target == null || targetShop != character.target.gameObject))
+            && (character.target == null || targetShop != character.target.gameObject))
 		{
 			character.target = targetShop.GetComponent<Building>();
 			return ActionResult.SUCCESS;
