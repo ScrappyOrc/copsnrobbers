@@ -20378,8 +20378,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CITIZEN: {fileID: 199704, guid: 9b85443d1147ba141b02339430f8022b, type: 2}
-  CITIZENS: 100
-  ROBBERS: 1
+  ROBBER: {fileID: 165404, guid: 70257fc8025eb094e8a0b350a34ce4fe, type: 2}
+  CITIZENS: 5
+  ROBBERS: 5
   COPS: 5
   SPAWN_RATE: .100000001
 --- !u!4 &665037318
