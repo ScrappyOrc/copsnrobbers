@@ -19,7 +19,7 @@ public class Fight : Action
 	public Fight(Character target, float time) 
 	{
 		this.target = target;
-		this.distance = distance;
+		this.time = time;
 	}
 	
 	/// <summary>
