@@ -14,7 +14,7 @@ public enum CharacterType {
 /// </summary>
 public class Character : MonoBehaviour {
 
-	protected readonly Queue<Action> actionQueue = new Queue<Action>();
+	protected Queue<Action> actionQueue = new Queue<Action>();
 	protected NavMeshAgent agent;
 	private bool running = false;
 
@@ -118,29 +118,16 @@ public class Character : MonoBehaviour {
 		actionQueue.Enqueue(action);
 	}
 
+	/// <summary>
+	/// Inserts a new action at the front of the queue
+	/// </summary>
+	/// <param name="action">Action to force to the front of the queue</param>
 	public void InsertAction(Action action) {
-
-	}
-
-
-	/*public virtual void MakeDecision() {
-		DecisionTree.Node node = dTree.Root;
-		bool inTree = true;
-		while (inTree) {
-			MethodInfo method = this.GetType().GetMethod(node.Data);
-			if ((bool)method.Invoke(this, null)) {
-				if (node.IsLeaf()) inTree = false;
-				else {
-					node = node.YesPtr;
-				}
-			} else {
-				if (node.IsLeaf()) inTree = false;
-				else {
-					node = node.NoPtr;
-				}
-			}
+		Queue<Action> newQueue = new Queue<Action>();
+		newQueue.Enqueue (action);
+		while (actionQueue.Count > 0) {
+			newQueue.Enqueue(actionQueue.Dequeue());
 		}
-	}*/
-
-
+		actionQueue = newQueue;
+	}
 }
