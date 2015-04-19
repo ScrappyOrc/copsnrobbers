@@ -6,6 +6,12 @@ public class Cop : Character
 	private Robber robber;
 	private Robber nearbyRobber;
 
+	public Robber Robber {
+		get {
+			return robber;
+		}
+	}
+
 	// Use this for initialization
 	override protected void Start () 
 	{
