@@ -6,7 +6,9 @@ using System.Collections;
 /// and will wait until they can spend/buy money.
 /// </summary>
 public class Rob : Action {
-	
+
+	// TODO: expand this out to allow the robber to rob a citizen
+
 	private Building building;
 	private bool done = false;
 	private bool robbing = false;
