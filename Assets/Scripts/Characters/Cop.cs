@@ -23,7 +23,7 @@ public class Cop : Character
 	/// Do I have a call? (true when has a robber target)
 	/// </summary>
 	// <returns><c>true</c>Currently on call<c>false</c>Not currently on call</returns>
-	private bool HasCall()
+	public bool HasCall()
 	{	
 		return robber != null;
 	}

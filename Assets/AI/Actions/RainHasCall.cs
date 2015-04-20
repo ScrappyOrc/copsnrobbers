@@ -10,7 +10,7 @@ public class RainHasCall : ActionBase
     public override ActionResult Execute()
     {
 		// If this cop has a robber target, he DOES HAVE A CALL
-		if(character != null && ((Cop)character).Robber != null)
+		if((character as Cop).HasCall())
 			return ActionResult.SUCCESS;
 
 		// This cop does not have a call

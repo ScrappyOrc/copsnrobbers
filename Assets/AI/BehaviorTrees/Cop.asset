@@ -30,7 +30,7 @@ MonoBehaviour:
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;StopRobber&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainStopRobber&quot; /&gt;&lt;/sequencer&gt;&lt;selector
       usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; priority=&quot;&quot;
-      name=&quot;Patrol&quot; debugbreak=&quot;False&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
+      name=&quot;Patrol&quot; debugbreak=&quot;False&quot;&gt;&lt;sequencer usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;LookForTrouble&quot;
       debugbreak=&quot;False&quot;&gt;&lt;action repeatuntil=&quot;&quot; priority=&quot;&quot;
       parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;&quot;
@@ -40,7 +40,7 @@ MonoBehaviour:
       debugbreak=&quot;False&quot; classname=&quot;RainStartCall&quot; /&gt;&lt;action
       repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;StopRobber&quot; debugbreak=&quot;False&quot;
-      classname=&quot;RainStopRobber&quot; /&gt;&lt;/selector&gt;&lt;action repeatuntil=&quot;&quot;
+      classname=&quot;RainStopRobber&quot; /&gt;&lt;/sequencer&gt;&lt;action repeatuntil=&quot;&quot;
       priority=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;&quot;
       name=&quot;Wander&quot; debugbreak=&quot;False&quot; classname=&quot;RainWander&quot;
       /&gt;&lt;/selector&gt;&lt;/selector&gt;&lt;/behaviortree&gt;" type="System.String"

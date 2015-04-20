@@ -22,8 +22,9 @@ public class RainFindRobber : ActionBase
 		foreach (GameObject go in nearby) 
 		{
 			robby = go.GetComponent<Robber>();
+			Debug.Log("Crime Level = " + robby.CrimeLevel);
 			// If we have a robber that is a degree of suspicious
-			if (robby != null && robby.CrimeLevel > 0) 
+			if (robby.CrimeLevel > 0) 
 			{
 				// Start following that robber
 				character.QueueAction(new Follow(robby.gameObject, 5.0f));
