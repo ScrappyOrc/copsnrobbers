@@ -52,6 +52,7 @@ public class Citizen : Character
 			{
 				var robber = GameManager.singleton.GetClosest(CharacterType.ROBBER, this);
 				ForceAction(new Seek(robber, 0.5f));
+				QueueAction(new Fight(robber.GetComponent<Robber>(), 5.0f + (aggressiveness - 0.75f) * 60));
 			}
 		}
 	}
