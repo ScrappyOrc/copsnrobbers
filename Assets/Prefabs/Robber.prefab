@@ -14,9 +14,10 @@ GameObject:
   - 195: {fileID: 19568136}
   - 114: {fileID: 11473226}
   - 114: {fileID: 11485144}
+  - 135: {fileID: 13511706}
   m_Layer: 0
   m_Name: Robber
-  m_TagString: Untagged
+  m_TagString: Robber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +128,18 @@ MonoBehaviour:
   lowMoney: 0
   wanderBlocks: 3
   money: 0
+--- !u!135 &13511706
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 50
+  m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!136 &13654448
 CapsuleCollider:
   m_ObjectHideFlags: 1

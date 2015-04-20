@@ -32,7 +32,7 @@ public class Citizen : Character
 	/// <param name="other">the thing colliding with</param>
 	void OnTriggerEnter(Collider other) 
 	{
-		if (!other.CompareTag("Citizen")) 
+		if (other.CompareTag("Robber")) 
 		{
 			if (aggressiveness < 0.25) 
 			{
@@ -52,7 +52,6 @@ public class Citizen : Character
 			{
 				var robber = GameManager.singleton.GetClosest(CharacterType.ROBBER, this);
 				ForceAction(new Seek(robber, 0.5f));
-				//ForceAction(new Fight(robber, 5.0 + (this.agressiveness - 0.75f) * 60));
 			}
 		}
 	}
