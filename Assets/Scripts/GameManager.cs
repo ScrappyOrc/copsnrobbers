@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
 	public GameObject CITIZEN;
 	public GameObject COP;
+	public GameObject ROBBER;
 
 	public int CITIZENS = 100;
 	public int ROBBERS = 1;
@@ -138,36 +139,39 @@ public class GameManager : MonoBehaviour
 
 	void Update() 
 	{
-		if (CITIZENS > 0) 
-		{
+		// Spawn characters as needed
+		if (CITIZENS + COPS + ROBBERS > 0) {
+			if (spawn (ref CITIZENS, CITIZEN, citizenList))
+				;
+			else if (spawn (ref COPS, COP, copList))
+				;
+			else
+				spawn (ref ROBBERS, ROBBER, robberList);
+		}
+	}
+
+	/// <summary>
+	/// Spawns a new character using the given details if
+	/// there still needs to be more of them.
+	/// </summary>
+	/// <param name="count">amount of the character needed to spawn still</param>
+	/// <param name="prefab">the prefab for the character</param>
+	/// <param name="list">the list of the character type</param>
+	private bool spawn(ref int count, GameObject prefab, GameObject[] list) 
+	{
+		if (count > 0) {
 			spawnTimer -= Time.deltaTime;
-			while (spawnTimer <= 0) 
-			{
+			while (spawnTimer <= 0 && count > 0) {
 				spawnTimer += SPAWN_RATE;
-
-				GameObject citizen = (GameObject)GameObject.Instantiate(CITIZEN);
-				GameObject spawn = City.GetRandom(City.houses);
-				citizen.transform.position = spawn.transform.position;
-				citizenList[citizenList.Length - CITIZENS] = citizen;
-
-				CITIZENS--;
+				
+				GameObject character = (GameObject)GameObject.Instantiate(prefab);
+				GameObject spawn = City.GetRandom (City.houses);
+				character.transform.position = spawn.transform.position;
+				citizenList [list.Length - count] = character;
+				
+				count--;
 			}
 		}
-
-		if (COPS > 0) 
-		{
-			spawnTimer -= Time.deltaTime;
-			while (spawnTimer <= 0) 
-			{
-				spawnTimer += SPAWN_RATE;
-
-				GameObject cop = (GameObject)GameObject.Instantiate(COP);
-				GameObject copSpawn = City.GetRandom(City.houses);
-				cop.transform.position = copSpawn.transform.position;
-				copList[copList.Length - COPS] = cop;
-
-				COPS--;
-			}
-		}
+		return count > 0;
 	}
 }

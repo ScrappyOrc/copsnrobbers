@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: b36e6492d49818c4ca99257e899b9c2b, type: 2}
 --- !u!1 &426612
 GameObject:
@@ -20378,6 +20379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CITIZEN: {fileID: 199704, guid: 9b85443d1147ba141b02339430f8022b, type: 2}
+  COP: {fileID: 165404, guid: 2b8e6ac8545bc2c499f63981a2115148, type: 2}
+  ROBBER: {fileID: 154448, guid: b9202c391a03f1148a39985eb87a7ed7, type: 2}
   CITIZENS: 100
   ROBBERS: 1
   COPS: 5
