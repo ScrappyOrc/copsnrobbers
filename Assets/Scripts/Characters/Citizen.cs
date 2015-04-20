@@ -30,13 +30,15 @@ public class Citizen : Character
 	/// Handles being near a robbery
 	/// </summary>
 	/// <param name="other">the thing colliding with</param>
-	void OnTriggerEnter(Collider other) 
+	public void Trigger(Collider other) 
 	{
 		if (other.CompareTag("Robber")) 
 		{
+			GameObject robber = other.transform.parent.gameObject;
+
 			if (aggressiveness < 0.25) 
 			{
-				ForceAction(new Flee(other.gameObject, 100));
+				ForceAction(new Flee(robber, 100));
 			}
 			else if (aggressiveness < 0.5)
 			{
@@ -50,7 +52,6 @@ public class Citizen : Character
 			}
 			else 
 			{
-				var robber = GameManager.singleton.GetClosest(CharacterType.ROBBER, this);
 				ForceAction(new Seek(robber, 0.5f));
 				QueueAction(new Fight(robber.GetComponent<Robber>(), 5.0f + (aggressiveness - 0.75f) * 60));
 			}

@@ -15,6 +15,9 @@ public class Robber : Character
 	// The severity of the robbery
 	private int crimeLevel = 0;
 
+	// The game object child with the trigger collider
+	public GameObject trigger;
+
 	// How many cops are chasing the robber
 	public int CopsOnTail {
 		get { return copsOnTail; }
@@ -31,6 +34,8 @@ public class Robber : Character
 	override protected void Start () 
 	{
 		base.Start ();
+
+		trigger.collider.enabled = false;
 
 		// Despite being robbers, they appear
 		// as citizens to begin with to avoid
@@ -86,6 +91,7 @@ public class Robber : Character
 
 		hasRobbed = true;
 		type = CharacterType.ROBBER;
+		trigger.collider.enabled = true;
 		return true;
 	}
 
