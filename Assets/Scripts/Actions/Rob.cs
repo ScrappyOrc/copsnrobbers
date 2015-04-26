@@ -46,6 +46,7 @@ public class Rob : Action {
 		if (heistTime <= 0) {
 			character.money += building.Rob();
 			done = true;
+			(character as Robber).trigger.collider.enabled = true;
 		}
 		/* Taken from the shop action
 		 * // Need to have the right amount of money
