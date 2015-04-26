@@ -155,9 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   lowMoney: 0
+  DEBUG: 1
   wanderBlocks: 3
   money: 0
-  trigger: {fileID: 0}
+  trigger: {fileID: 123292}
 --- !u!135 &13511706
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -29,10 +29,15 @@ public class Building : MonoBehaviour {
 	public float LINE_SPACE = 0.5f;
 
 	// money in the cash register
-	public float cashRegister = 0.0f;
+	public float cashRegister = 0;
 
 	// Characters currently in line
 	private readonly List<GameObject> line = new List<GameObject>();
+
+	void Start()
+	{
+		cashRegister = Random.value * 500;
+	}
 
 	/// <summary>
 	/// Checks whether or not the line for the building is empty
@@ -73,7 +78,7 @@ public class Building : MonoBehaviour {
 
 	public void Buy()
 	{
-		cashRegister += MONEY_AMOUNT;
+		cashRegister += Mathf.Abs(MONEY_AMOUNT);
 	}
 
 	public float Rob()

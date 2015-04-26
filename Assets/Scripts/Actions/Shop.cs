@@ -60,6 +60,7 @@ public class Shop : Action {
 			if (transactionTime <= 0)
 			{
 				building.Dequeue();
+				building.Buy();
 				character.money += building.MONEY_AMOUNT;
 				done = true;
 			}
