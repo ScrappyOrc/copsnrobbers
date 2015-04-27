@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 				GameObject character = (GameObject)GameObject.Instantiate(prefab);
 				GameObject spawn = City.GetRandom (City.houses);
 				character.transform.position = spawn.transform.position;
-				citizenList [list.Length - count] = character;
+				list[list.Length - 1] = character;
 				
 				count--;
 			}
