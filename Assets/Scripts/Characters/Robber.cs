@@ -28,6 +28,7 @@ public class Robber : Character
 	// This is "0" when hasn't robbed anything
 	public int CrimeLevel {
 		get { return crimeLevel; }
+		set { crimeLevel = value; }
 	}
 
 	// Use this for initialization

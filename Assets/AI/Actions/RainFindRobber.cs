@@ -28,7 +28,7 @@ public class RainFindRobber : ActionBase
 			{
 				// Start following that robber
 				character.QueueAction(new Follow(robby.gameObject, 5.0f));
-
+				Debug.Log ("found a robber!!!");
 				result = ActionResult.RUNNING;
 			}
 		}
