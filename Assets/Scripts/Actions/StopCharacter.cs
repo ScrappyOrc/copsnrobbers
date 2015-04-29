@@ -20,7 +20,6 @@ public class StopCharacter : Action
 	public StopCharacter(GameObject target)
 	{
 		this.target = target;
-		this.distance = distance;
 
 		// Shouldn't ever provide a null target, but just in case
 		if (target == null) 
