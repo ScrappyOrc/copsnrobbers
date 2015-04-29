@@ -50,8 +50,6 @@ public class GameManager : MonoBehaviour
 		copList = new GameObject[COPS];
 
 		City.Initialize();
-
-		EvolveMain.Initialize();
 	}
 
 	/// <summary>
@@ -147,7 +145,7 @@ public class GameManager : MonoBehaviour
 			if (spawn (ref CITIZENS, CITIZEN, citizenList))
 				;
 			else if (spawn (ref COPS, COP, copList))
-				;
+				EvolveMain.Initialize(copList);	// Use genetic algorithms on the COPS
 			else
 				spawn (ref ROBBERS, ROBBER, robberList);
 		}

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace ThreshEvolve
@@ -40,10 +41,15 @@ namespace ThreshEvolve
 		/// Initialize our algorithm for this population.
 		/// </summary>
 		/// <param name="population">The list of characters to evolve</param>
-		public static void Initialize(List<Character> pop)
+		public static void Initialize(GameObject[] pop)
 		{
-			popSize = pop.Count;
-			population = pop;
+			popSize = pop.Length;
+
+			// Extract the character component from each and store list of result
+			List<Character> temp = new List<Character>();
+			for (int i = 0; i < popSize; i++)
+				temp.Add (pop[i].GetComponent<Character>());
+			population = temp;
 		}
 
 		public static void Main (string[] args)
