@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ThreshEvolve
 {
-	class MainClass
+	class EvolveMain
 	{
 	   /* MainClass contains all the code that knows about the specific threshold
  		* being evolved. The program demos how the GA works by setting up a
@@ -33,6 +34,18 @@ namespace ThreshEvolve
 		static int chromLeng = 10;              // Number of bits in a chromosome
 		static int nChromVals = 1 << chromLeng; // Number of values for that many bits
 
+		static List<Character> population;
+
+		/// <summary>
+		/// Initialize our algorithm for this population.
+		/// </summary>
+		/// <param name="population">The list of characters to evolve</param>
+		public static void Initialize(List<Character> pop)
+		{
+			popSize = pop.Count;
+			population = pop;
+		}
+
 		public static void Main (string[] args)
 		{
 			// Create the population, either from the file or from scratch
@@ -48,6 +61,10 @@ namespace ThreshEvolve
 			// In your game, a given threshold would be an attribute of an NPC,
 			// and the fitness would be determined when that NPC is "done"
 			uint [] chroms = new uint[popSize];
+			for(int j = 0; j < popSize; j++)
+			{
+				chroms[j] = population[j].chromosone;
+			}
             // TOMMY: ^^^ Above, each member of the population will have a uint instead of an array
 
 			// Check out all the individuals from the population to get their chroms

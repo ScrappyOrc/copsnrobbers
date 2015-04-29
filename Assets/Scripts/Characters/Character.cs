@@ -23,6 +23,8 @@ public class Character : MonoBehaviour {
 
     public int wanderBlocks = 3;
 
+	public uint chromosone;
+
 	protected CharacterType type;
 
 	// Amount of money the character has

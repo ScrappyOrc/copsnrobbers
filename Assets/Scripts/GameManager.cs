@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using ThreshEvolve;
 
 /// <summary>
 /// Main class for setting up the game and accessing various aspects
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
 		copList = new GameObject[COPS];
 
 		City.Initialize();
+
+		EvolveMain.Initialize();
 	}
 
 	/// <summary>
