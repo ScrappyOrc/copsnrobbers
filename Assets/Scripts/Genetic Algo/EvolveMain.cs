@@ -50,6 +50,8 @@ namespace ThreshEvolve
 			for (int i = 0; i < popSize; i++)
 				temp.Add (pop[i].GetComponent<Character>());
 			population = temp;
+
+			EvolveMain.Main (null);
 		}
 
 		public static void Main (string[] args)

@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 			if (spawn (ref CITIZENS, CITIZEN, citizenList))
 				;
 			else if (spawn (ref COPS, COP, copList))
-				EvolveMain.Initialize(copList);	// Use genetic algorithms on the COPS
+				;
 			else
 				spawn (ref ROBBERS, ROBBER, robberList);
 		}
@@ -168,11 +168,15 @@ public class GameManager : MonoBehaviour
 				GameObject character = (GameObject)GameObject.Instantiate(prefab);
 				GameObject spawn = City.GetRandom (City.houses);
 				character.transform.position = spawn.transform.position;
-				list[list.Length - 1] = character;
+				list[list.Length - count] = character;
 				
 				count--;
 			}
 		}
+
+		if (citizenList [citizenList.Length - 1])
+			EvolveMain.Initialize (citizenList);	// Use genetic algorithms on the COPS
+
 		return count > 0;
 	}
 }
