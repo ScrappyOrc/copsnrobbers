@@ -47,6 +47,7 @@ public class Rob : Action {
 			character.money += building.Rob();
 			done = true;
 			(character as Robber).trigger.collider.enabled = true;
+			Debug.Log("MUAHAHAHAHAHA");
 		}
 		/* Taken from the shop action
 		 * // Need to have the right amount of money

@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: b36e6492d49818c4ca99257e899b9c2b, type: 2}
 --- !u!1 &426612
 GameObject:
@@ -12776,7 +12775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
-  PROCESS_TIME: 20
+  PROCESS_TIME: 2
   ROB_TIME: 10
   SECURITY_LEVEL: 1
   LINE_SPACE: .5
@@ -19831,7 +19830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: 200
-  PROCESS_TIME: 20
+  PROCESS_TIME: 2
   ROB_TIME: 10
   SECURITY_LEVEL: 1
   LINE_SPACE: .5
@@ -21612,7 +21611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -50
-  PROCESS_TIME: 30
+  PROCESS_TIME: 2
   ROB_TIME: 10
   SECURITY_LEVEL: 1
   LINE_SPACE: .5
@@ -41262,7 +41261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -15
-  PROCESS_TIME: 20
+  PROCESS_TIME: 2
   ROB_TIME: 10
   SECURITY_LEVEL: 1
   LINE_SPACE: .5
@@ -54977,7 +54976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MONEY_AMOUNT: -30
-  PROCESS_TIME: 20
+  PROCESS_TIME: 2
   ROB_TIME: 10
   SECURITY_LEVEL: 1
   LINE_SPACE: .5
