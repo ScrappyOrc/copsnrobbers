@@ -60,7 +60,10 @@ namespace ThreshEvolve
 			// Presumably the popSize would be the number of NPCs that will be
 			// spawned for a round.  The data file name is set here as well by
 			// passing it into the constructor.
-			ThreshPop tp = new ThreshPop(chromLeng, popSize, "test1.txt");	// 
+			ThreshPop tp = new ThreshPop(chromLeng, popSize, "test1.txt");	//
+			// TOMMY: 	Will need to use the chromosones of each character instead of
+			//			randomly generated. Or will need to assign each character
+			//			the randomly generated chromosome and alter it from there
 
 			// Local storage for the chromosomes and fitness values to demonstrate
 			// how the ThreshPop is used.  In this case, we'll just store an array
@@ -121,7 +124,8 @@ namespace ThreshEvolve
 			float step = (ub - lb) / nChromVals;	// Step size for chrom values
 			return (gen * step + lb);
 		}
-        // TOMMY: ^^^ Have to write this ourselves
+        // TOMMY: ^^^ 	Have to write this ourselves or could keep this but would have to stick within the
+		//				fitness bounds that the default program presented.
 
 		/* Generates a fitness value for a phenotype value
 		 * Actual function is arbitrary, but needs to return an int,
@@ -143,7 +147,7 @@ namespace ThreshEvolve
 			return (int) (phen * 2 + Util.rand.Next(400));	// S/N = 1:1
             // TOMMY: ^^^ simulating a noisy fitness function. 
 		}
-        // TOMMY: ^^^ Have to write this ourselves
+        // TOMMY: ^^^ Have to write this ourselves to calculate a character's fitness based on...what?
 	}
 
 }
