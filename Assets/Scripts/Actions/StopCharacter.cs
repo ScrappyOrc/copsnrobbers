@@ -41,6 +41,9 @@ public class StopCharacter : Action
 			return;
 		}
 
+		// This robber is done, let's record all the fitness/chromosome states
+		ThreshEvolve.EvolveMain.Main (null);
+
 		// For now, just delete the robber from the game world when captured
 		GameObject.Destroy(target);
 

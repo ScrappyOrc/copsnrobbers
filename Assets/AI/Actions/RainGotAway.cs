@@ -11,6 +11,10 @@ public class RainGotAway : ActionBase
     {
 		character.target = null;
 		(character as Robber).trigger.collider.enabled = false;
+
+		// We succeeded so we are considered more fit
+		character.fitness += 50;
+
         return ActionResult.SUCCESS;
     }
 }

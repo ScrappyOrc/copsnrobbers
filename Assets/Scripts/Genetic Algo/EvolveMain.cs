@@ -61,6 +61,7 @@ namespace ThreshEvolve
 			//			randomly generated. Or will need to assign each character
 			//			the randomly generated chromosome and alter it from there
 
+			// This runs the initial fitness/chromosome generation/test
 			EvolveMain.Main (null);
 		}
 
@@ -82,7 +83,7 @@ namespace ThreshEvolve
 			{
 				chroms[i] = tp.CheckOut();
 				// Store the proper chromosome in each character in our population
-				population[i].chromosone = chroms[i];
+				population[i].chromosome = chroms[i];
 				i++;
 			}
 

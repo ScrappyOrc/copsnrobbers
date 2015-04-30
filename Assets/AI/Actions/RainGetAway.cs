@@ -10,6 +10,7 @@ public class RainGetAway : ActionBase
     public override ActionResult Execute()
     {
 		character.QueueAction( new Flee( character.target.gameObject, 150.0f ) );
+		character.fitness += 10;
         return ActionResult.RUNNING;
     }
 }

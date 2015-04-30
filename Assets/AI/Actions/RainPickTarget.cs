@@ -15,7 +15,7 @@ public class RainPickTarget : ActionBase
 		// Chromosome Z decides if I am scared and don't want to rob
 
 		// If I am frightened (chromosome z == 0) then there is a better chance of wandering instead
-		if (character.chromosone == 0 || character.chromosone == 2 || character.chromosone == 4 || character.chromosone == 6)
+		if (character.chromosome == 0 || character.chromosome == 2 || character.chromosome == 4 || character.chromosome == 6)
 		{
 			if(rnd < 0.2)
 			{
@@ -26,7 +26,7 @@ public class RainPickTarget : ActionBase
 
 		// The robber will sometimes pick a random shop/bank, but will usually pick the nearest shop/bank
 		//if (rnd < 0.2)
-		if(character.chromosone == 0 || character.chromosone == 1 || character.chromosone == 2 || character.chromosone == 3)	// If X bit is 0, rob shop 
+		if(character.chromosome == 0 || character.chromosome == 1 || character.chromosome == 2 || character.chromosome == 3)	// If X bit is 0, rob shop 
 		{
 			character.target = City.GetRandom (City.shops).GetComponent<Building>();
 		}

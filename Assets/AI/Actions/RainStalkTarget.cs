@@ -16,6 +16,8 @@ public class RainStalkTarget : ActionBase
 		// TODO: make targets be game objects
 		// then the robbers can actually stalk the target
 
+		character.fitness += 10;
+
 		if( character.target.GetType() == typeof(Character) )
 		{
 			//character.QueueAction( new Follow( character.target, followDistance ) );

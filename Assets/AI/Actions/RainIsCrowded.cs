@@ -27,7 +27,7 @@ public class RainIsCrowded : ActionBase
 
 		// If the character's Y chromosome == 0, then they are more reckless. They will consider a place crowded
 		// if there are more people than a non-reckless robber would find a place crowded. (i.e. 13 vs 10 citizens)
-		if (character.chromosone == 0 || character.chromosone == 1 || character.chromosone == 4 || character.chromosone == 5)
+		if (character.chromosome == 0 || character.chromosome == 1 || character.chromosome == 4 || character.chromosome == 5)
 			citCount += 3;
 
 		bool crowded = GameManager.singleton.CountNearby(CharacterType.COP, character.transform.position, 50) > COP_COUNT

@@ -20,6 +20,9 @@ public class RainStopRobber : ActionBase
 			// Stop the robber
 			character.QueueAction(new StopCharacter(robby.gameObject));
 
+			// The robber got caught, so he is considered less fit
+			robby.fitness -= 50;
+
 			result = ActionResult.SUCCESS;
 		}
 

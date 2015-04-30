@@ -23,7 +23,8 @@ public class Character : MonoBehaviour {
 
     public int wanderBlocks = 3;
 
-	public uint chromosone;
+	public uint chromosome;
+	public int fitness = 300;	// 300 is the base fitness
 
 	protected CharacterType type;
 
