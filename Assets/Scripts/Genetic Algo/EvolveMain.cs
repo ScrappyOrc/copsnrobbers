@@ -96,7 +96,8 @@ namespace ThreshEvolve
 			i = 0;
 			while (! tp.AllCheckedIn())
 			{
-				int fit = Fitness(Gen2Phen(chroms[i]));	// Determine fitness
+				//int fit = Fitness(Gen2Phen(chroms[i]));	// Determine fitness
+				int fit = population[i].fitness;
 				tp.CheckIn(chroms[i], fit);				// CheckIn to next generation
 				i++;
 			}
