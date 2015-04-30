@@ -14,6 +14,7 @@ public class RainGotAway : ActionBase
 
 		// We succeeded so we are considered more fit
 		character.fitness += 50;
+		Debug.Log ("Robber got away, his fitness increased by 50");
 
         return ActionResult.SUCCESS;
     }

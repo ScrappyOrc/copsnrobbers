@@ -22,6 +22,7 @@ public class RainStopRobber : ActionBase
 
 			// The robber got caught, so he is considered less fit
 			robby.fitness -= 50;
+			Debug.Log("Robber was stopped, his fitness was decreased by 50");
 
 			result = ActionResult.SUCCESS;
 		}

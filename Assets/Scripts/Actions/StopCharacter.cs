@@ -41,6 +41,7 @@ public class StopCharacter : Action
 			return;
 		}
 
+		Debug.Log ("This robber was stopped so we should evolve the population");
 		// This robber is done, let's record all the fitness/chromosome states
 		ThreshEvolve.EvolveMain.Main (null);
 

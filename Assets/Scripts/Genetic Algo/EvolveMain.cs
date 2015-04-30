@@ -67,6 +67,7 @@ namespace ThreshEvolve
 
 		public static void Main (string[] args)
 		{
+			Debug.Log ("Running chromosome checkout and checkin+fitness");
 			// Local storage for the chromosomes and fitness values to demonstrate
 			// how the ThreshPop is used.  In this case, we'll just store an array
 			// of chromosomes to represent the checked out population and manipulate

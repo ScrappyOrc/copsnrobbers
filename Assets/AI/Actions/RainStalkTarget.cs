@@ -16,6 +16,7 @@ public class RainStalkTarget : ActionBase
 		// TODO: make targets be game objects
 		// then the robbers can actually stalk the target
 
+		Debug.Log ("Robber is stalking a target, he is slightly more fit (+10)");
 		character.fitness += 10;
 
 		if( character.target.GetType() == typeof(Character) )
