@@ -15,13 +15,15 @@ public class RainStopRobber : ActionBase
 		// Try to grab the cop's target
 		Robber robby = ((Cop)character).Robber;
 
-		if(robby != null)
-		{
-			// Stop the robber
-			character.QueueAction(new StopCharacter(robby.gameObject));
+		if ( robby.CrimeLevel == 0)
+			return ActionResult.FAILURE;
 
-			result = ActionResult.SUCCESS;
-		}
+		Debug.Log ("Got 'em");
+
+		// Stop the robber
+		character.QueueAction(new StopCharacter(robby.gameObject));
+
+		result = ActionResult.SUCCESS;
 
 		// Return status/result
 		return result;
