@@ -174,8 +174,8 @@ public class GameManager : MonoBehaviour
 			}
 		}
 
-		if (citizenList [citizenList.Length - 1])
-			EvolveMain.Initialize (citizenList);	// Use genetic algorithms on the COPS
+		if (robberList [robberList.Length - 1])
+			EvolveMain.Initialize (robberList);	// Use genetic algorithms on the COPS
 
 		return count > 0;
 	}

@@ -103,6 +103,7 @@ namespace ThreshEvolve
 			// Save the new population for next time
 			// This would be done at the end of each "round"
 			tp.WritePop();
+			// ^^^ This writes out the chromosome in uint form, and the fitness
 
 			tp.DisplayPop(1);	// Display new population on the Console for grins
 		}
