@@ -43,7 +43,8 @@ public class StopCharacter : Action
 		}
 
 		// For now, just delete the robber from the game world when captured
-		GameObject.Destroy(target);
+		(character as Cop).Robber.Arrest ();
+		(character as Cop).Robber.ForceAction (new Wander ());
 
 		// After one run this action will be completed no matter what (COULD CHANGE LATER)
 		done = true;

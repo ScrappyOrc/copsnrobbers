@@ -203,4 +203,44 @@ public class Robber : Character
 		QueueAction(new Idle(2));
 		return true;
 	}
+
+	/// <summary>
+	/// Marks the robber as having failed its
+	/// robbery attempt after getting caught by the cops
+	/// </summary>
+	public void Arrest()
+	{
+		if (crimeLevel == 0)
+			return;
+
+		Reset ();
+
+		// TODO Genetic algorithm application for success
+	}
+
+	/// <summary>
+	/// Marks the robber as having a successful
+	/// robbery after getting away
+	/// </summary>
+	public void Escape()
+	{
+		if (crimeLevel == 0)
+			return;
+
+		Reset ();
+
+		// TODO Genetic algorithm application for failure
+	}
+
+	/// <summary>
+	/// Resets the robber's values after finishing a rob attempt
+	/// </summary>
+	private void Reset()
+	{
+		crimeLevel = 0;
+		hasRobbed = false;
+		store = null;
+		target = null;
+		trigger.collider.enabled = false;
+	}
 }
