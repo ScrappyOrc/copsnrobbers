@@ -32,10 +32,11 @@ namespace ThreshEvolve
  		*/
 
 		static int popSize = 20;				// Population size
-		static int chromLeng = 10;              // Number of bits in a chromosome
+		static int chromLeng = 3;              // Number of bits in a chromosome
 		static int nChromVals = 1 << chromLeng; // Number of values for that many bits
 
 		static List<Character> population;
+		static ThreshPop tp;
 
 		/// <summary>
 		/// Initialize our algorithm for this population.
@@ -51,20 +52,20 @@ namespace ThreshEvolve
 				temp.Add (pop[i].GetComponent<Character>());
 			population = temp;
 
+			// Create the population, either from the file or from scratch
+			// Presumably the popSize would be the number of NPCs that will be
+			// spawned for a round.  The data file name is set here as well by
+			// passing it into the constructor.
+			tp = new ThreshPop(chromLeng, popSize, "test1.txt");	//
+			// TOMMY: 	Will need to use the chromosones of each character instead of
+			//			randomly generated. Or will need to assign each character
+			//			the randomly generated chromosome and alter it from there
+
 			EvolveMain.Main (null);
 		}
 
 		public static void Main (string[] args)
 		{
-			// Create the population, either from the file or from scratch
-			// Presumably the popSize would be the number of NPCs that will be
-			// spawned for a round.  The data file name is set here as well by
-			// passing it into the constructor.
-			ThreshPop tp = new ThreshPop(chromLeng, popSize, "test1.txt");	//
-			// TOMMY: 	Will need to use the chromosones of each character instead of
-			//			randomly generated. Or will need to assign each character
-			//			the randomly generated chromosome and alter it from there
-
 			// Local storage for the chromosomes and fitness values to demonstrate
 			// how the ThreshPop is used.  In this case, we'll just store an array
 			// of chromosomes to represent the checked out population and manipulate
@@ -72,10 +73,6 @@ namespace ThreshEvolve
 			// In your game, a given threshold would be an attribute of an NPC,
 			// and the fitness would be determined when that NPC is "done"
 			uint [] chroms = new uint[popSize];
-			for(int j = 0; j < popSize; j++)
-			{
-				chroms[j] = population[j].chromosone;
-			}
             // TOMMY: ^^^ Above, each member of the population will have a uint instead of an array
 
 			// Check out all the individuals from the population to get their chroms
@@ -84,6 +81,8 @@ namespace ThreshEvolve
 			while (! tp.AllCheckedOut())
 			{
 				chroms[i] = tp.CheckOut();
+				// Store the proper chromosome in each character in our population
+				population[i].chromosone = chroms[i];
 				i++;
 			}
 
