@@ -9,15 +9,20 @@ public class RainFindRobber : ActionBase
 {
     public override ActionResult Execute()
     {
+		return Find (character);
+    }
+
+	public static ActionResult Find(Character character)
+	{
 		// Start with default of failure for this action
 		ActionResult result = ActionResult.FAILURE;
-
+		
 		// Get all nearby robbers in a certain radius
 		List<GameObject> nearby = GameManager.singleton.GetNearby(CharacterType.ROBBER, character.transform.position, 50);
-
+		
 		// Temp var
 		Robber robby;
-
+		
 		// Check each robber
 		foreach (GameObject go in nearby) 
 		{
@@ -32,8 +37,8 @@ public class RainFindRobber : ActionBase
 				result = ActionResult.RUNNING;
 			}
 		}
-
+		
 		// Return status/result
 		return result;
-    }
+	}
 }
