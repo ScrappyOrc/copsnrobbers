@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public struct EscapeRoute {
-    public GameObject bank;
+    public GameObject building;
     public GameObject escapePoint;
 }
 
@@ -17,11 +17,20 @@ public class Bayes {
 	    for (int i = 0; i < City.banks.Length; i++) {
             for (int j = 0; j < City.escapes.Length; j++) {
                 EscapeRoute tempEscape;
-                tempEscape.bank = City.banks [i];
+				tempEscape.building = City.banks [i];
                 tempEscape.escapePoint = City.escapes [j];
                 successfulRobberies.Add (tempEscape, 1);
             }
 		}
+		for (int i = 0; i < City.shops.Length; i++) {
+			for (int j = 0; j < City.escapes.Length; j++) {
+				EscapeRoute tempEscape;
+				tempEscape.building = City.shops [i];
+				tempEscape.escapePoint = City.escapes [j];
+				successfulRobberies.Add (tempEscape, 1);
+			}
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -29,17 +38,17 @@ public class Bayes {
 	
 	}
 
-    public static int getSuccessfulRobberies(GameObject bank, GameObject escape) {
+	public static int getSuccessfulRobberies(GameObject building, GameObject escape) {
         EscapeRoute tempEscape;
-        tempEscape.bank = bank;
+		tempEscape.building = building;
         tempEscape.escapePoint = escape;
         //Debug.Log("Getting successful robberies for: Bank: " + bank + ", Escape: " + escape);
         return successfulRobberies [tempEscape];
 	}
 
-    public static void reportRobbery(GameObject bank, GameObject escape, bool success) {
+	public static void reportRobbery(GameObject building, GameObject escape, bool success) {
         EscapeRoute tempEscape;
-        tempEscape.bank = bank;
+		tempEscape.building = building;
         tempEscape.escapePoint = escape;
         //Debug.Log ("Reporting the robbery as " + bank + " " + escape + " " + success);
         if (success) {
