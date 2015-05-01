@@ -42,10 +42,13 @@ public class Bayes {
         tempEscape.bank = bank;
         tempEscape.escapePoint = escape;
         //Debug.Log ("Reporting the robbery as " + bank + " " + escape + " " + success);
-        if (success)
-            successfulRobberies [tempEscape] += 1;
+        if (success) {
+			successfulRobberies [tempEscape] += 1;
+			Debug.Log ("SUCCESS!");
+		}
         else {
             if (successfulRobberies [tempEscape] > 1) successfulRobberies[tempEscape] -= 1;
+			Debug.Log ("FAILED!");
         }
     }
 }
