@@ -48,7 +48,11 @@ public class Rob : Action {
 			done = true;
 			(character as Robber).trigger.collider.enabled = true;
 			Debug.Log("MUAHAHAHAHAHA");
+			
+			((Robber)character).CrimeLevel++;
+			Debug.Log ("increasing crime level!!!");
 		}
+
 		/* Taken from the shop action
 		 * // Need to have the right amount of money
 		if (character.money < -building.MONEY_AMOUNT) {
