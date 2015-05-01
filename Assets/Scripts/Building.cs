@@ -36,7 +36,7 @@ public class Building : MonoBehaviour {
 
 	void Start()
 	{
-		cashRegister = Random.value * 500;
+		cashRegister = Random.value * 5000;
 	}
 
 	/// <summary>

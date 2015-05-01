@@ -29,6 +29,7 @@ public class City {
 	public static GameObject[] houses;
 	public static GameObject[] shops;
 	public static GameObject[] banks;
+    public static GameObject[] escapes;
 
 	/// <summary>
 	/// Initializes data such as grabbing the locations of shops,
@@ -39,6 +40,7 @@ public class City {
 		houses = GameObject.FindGameObjectsWithTag("House");
 		shops = GameObject.FindGameObjectsWithTag("Shop");
 		banks = GameObject.FindGameObjectsWithTag("Bank");
+        escapes = GameObject.FindGameObjectsWithTag("Escape");
 	}
 
 	/// <summary>
