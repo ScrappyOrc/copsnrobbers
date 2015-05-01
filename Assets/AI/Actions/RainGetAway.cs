@@ -12,7 +12,7 @@ public class RainGetAway : ActionBase
         List<GameObject> escapePoints = new List<GameObject> ();
         // Create a weighted list of all the escape points
         for (int i = 0; i < City.escapes.Length; i++) {
-            for (int j = 0; j < Bayes.getSuccessfulRobberies ((character as Robber).targetBank, City.escapes [i]); j++) {
+            for (int j = 0; j <= Bayes.getSuccessfulRobberies ((character as Robber).targetBank, City.escapes [i]); j++) {
                 escapePoints.Add (City.escapes [i]);
             }
         }

@@ -217,8 +217,6 @@ public class Robber : Character
 			return;
         Bayes.reportRobbery (targetBank, targetEscape, false);
 		Reset ();
-
-		// TODO Genetic algorithm application for success
 	}
 
 	/// <summary>
@@ -233,8 +231,6 @@ public class Robber : Character
         Bayes.reportRobbery (targetBank, targetEscape, true);
 
 		Reset ();
-
-		// TODO Genetic algorithm application for failure
 	}
 
 	/// <summary>
