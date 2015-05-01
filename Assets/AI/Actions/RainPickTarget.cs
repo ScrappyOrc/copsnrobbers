@@ -10,7 +10,13 @@ public class RainPickTarget : ActionBase
     public override ActionResult Execute()
     {
 
-		float rnd = Random.value;
+		(character as Robber).targetBank = City.GetRandom (City.banks);
+
+        character.target = (character as Robber).targetBank.GetComponent<Building> ();
+
+        //Debug.Log("Added target bank: " + (character as Robber).targetBank);
+
+        /* TEMPORARILY CHANGED TO ONLY PICK BANKS FOR BAYES IMPLEMENTATION
 
 		// The robber will sometimes pick a random shop/bank, but will usually pick the nearest shop/bank
 		if (rnd < 0.5)

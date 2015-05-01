@@ -18,6 +18,9 @@ public class Robber : Character
 	// The game object child with the trigger collider
 	public GameObject trigger;
 
+    public GameObject targetBank;
+    public GameObject targetEscape;
+
 	// How many cops are chasing the robber
 	public int CopsOnTail {
 		get { return copsOnTail; }
@@ -212,7 +215,7 @@ public class Robber : Character
 	{
 		if (crimeLevel == 0)
 			return;
-
+        Bayes.reportRobbery (targetBank, targetEscape, false);
 		Reset ();
 
 		// TODO Genetic algorithm application for success
@@ -226,6 +229,8 @@ public class Robber : Character
 	{
 		if (crimeLevel == 0)
 			return;
+        //Debug.Log ("Got away safely!");
+        Bayes.reportRobbery (targetBank, targetEscape, true);
 
 		Reset ();
 
