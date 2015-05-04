@@ -67,6 +67,8 @@ public class Flee : Action
 		else
 		{
 			done = true;
+			// Set speed back to normal
+			character.Agent.speed = 3.5f;
 		}
 	}
 

@@ -32,29 +32,32 @@ public class Citizen : Character
 	/// <param name="other">the thing colliding with</param>
 	public void Trigger(Collider other) 
 	{
-		if (other.CompareTag("Robber")) 
+		//Debug.Log ("citizen got triggered");
+		if (other.CompareTag ("Robber"))
 		{
-			GameObject robber = other.transform.parent.gameObject;
+			//Debug.Log("Touched a robber!");
 
-			if (aggressiveness < 0.25) 
-			{
-				ForceAction(new Flee(robber, 100));
-			}
-			else if (aggressiveness < 0.5)
-			{
-				ForceAction(new Idle(30));
-			}
-			else if (aggressiveness < 0.75)
-			{
-				var cop = GameManager.singleton.GetClosest(CharacterType.COP, this).GetComponent<Cop>();
-				ForceAction(new Seek(cop.gameObject, 1));
-				QueueAction(new Warn(cop, other.GetComponent<Robber>()));
-			}
-			else 
-			{
-				ForceAction(new Seek(robber, 0.5f));
-				QueueAction(new Fight(robber.GetComponent<Robber>(), 5.0f + (aggressiveness - 0.75f) * 60));
-			}
+			// Run away from the robber at a higher-than-normal speed
+			GameObject robber = other.transform.parent.gameObject;
+			agent.speed = 20;
+			ForceAction (new Flee (robber, 100));
+
+			/*if (aggressiveness < 0.25) {
+				ForceAction (new Flee (robber, 100));
+			} else if (aggressiveness < 0.5) {
+				ForceAction (new Idle (30));
+			} else if (aggressiveness < 0.75) {
+				var cop = GameManager.singleton.GetClosest (CharacterType.COP, this).GetComponent<Cop> ();
+				ForceAction (new Seek (cop.gameObject, 1));
+				QueueAction (new Warn (cop, other.GetComponent<Robber> ()));
+			} else {
+				ForceAction (new Seek (robber, 0.5f));
+				QueueAction (new Fight (robber.GetComponent<Robber> (), 5.0f + (aggressiveness - 0.75f) * 60));
+			}*/
+		}
+		else if (other.CompareTag ("Player"))
+		{
+			Debug.Log("touched the player instead!");
 		}
 	}
 }
