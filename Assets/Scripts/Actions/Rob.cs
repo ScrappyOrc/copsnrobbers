@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents a complex action where the character gets in line at a building
@@ -48,7 +49,17 @@ public class Rob : Action {
 			done = true;
 			(character as Robber).trigger.collider.enabled = true;
 			Debug.Log("MUAHAHAHAHAHA");
-			
+
+			List<GameObject> escapePoints = new List<GameObject> ();
+			// Create a weighted list of all the escape points
+			for (int i = 0; i < City.escapes.Length; i++) {
+				for (int j = 0; j <= Bayes.getSuccessfulRobberies ((character as Robber).targetBank, City.escapes [i]); j++) {
+					escapePoints.Add (City.escapes [i]);
+				}
+			}
+			// choose an escape point.
+			(character as Robber).targetEscape = escapePoints [(int)(Random.value * escapePoints.Count)];
+
 			((Robber)character).CrimeLevel++;
 			Debug.Log ("increasing crime level!!!");
 		}
