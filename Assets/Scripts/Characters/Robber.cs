@@ -28,7 +28,13 @@ public class Robber : Character
 	// This is "0" when hasn't robbed anything
 	public int CrimeLevel {
 		get { return crimeLevel; }
-		set { crimeLevel = value; }
+		set
+		{
+			crimeLevel = value;
+
+			// Enable the "panic" collider when this robber has a crime level
+			trigger.collider.enabled = (crimeLevel > 0);
+		}
 	}
 
 	// Use this for initialization
@@ -44,6 +50,7 @@ public class Robber : Character
 		type = CharacterType.CITIZEN;
 	}
 
+	#region Unused
 	/// <summary>
 	/// Do I have a store in mind to rob?
 	/// </summary>
@@ -203,4 +210,5 @@ public class Robber : Character
 		QueueAction(new Idle(2));
 		return true;
 	}
+	#endregion
 }
