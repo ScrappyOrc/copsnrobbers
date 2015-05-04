@@ -46,10 +46,10 @@ MonoBehaviour:
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;GotAway&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainGotAway&quot; /&gt;&lt;/sequencer&gt;&lt;/selector&gt;&lt;/sequencer&gt;&lt;random
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Maybe&quot; debugbreak=&quot;False&quot;&gt;&lt;action
-      weight=&quot;25&quot; repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
+      weight=&quot;40&quot; repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;PickTarget&quot;
       debugbreak=&quot;False&quot; classname=&quot;RainPickTarget&quot; /&gt;&lt;action
-      weight=&quot;75&quot; repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
+      weight=&quot;60&quot; repeatuntil=&quot;&quot; parametervalues=&quot;&quot;
       parameters=&quot;&quot; namespace=&quot;&quot; name=&quot;Wander&quot; debugbreak=&quot;False&quot;
       classname=&quot;RainWander&quot; /&gt;&lt;/random&gt;&lt;/selector&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"

@@ -30,7 +30,11 @@ public class Wander : Action
 		{
 			character.Agent.SetDestination (target);
 		}
-		done = (target - character.transform.position).sqrMagnitude < 0.001;
+		if (character is Cop && RainFindRobber.Find(character) == RAIN.Action.RAINAction.ActionResult.RUNNING)
+		{
+			done = true;
+		}
+		else done = (target - character.transform.position).sqrMagnitude < 0.001;
 	}
 
 	/// <summary>

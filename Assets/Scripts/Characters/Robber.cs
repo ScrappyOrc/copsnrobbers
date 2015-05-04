@@ -18,6 +18,9 @@ public class Robber : Character
 	// The game object child with the trigger collider
 	public GameObject trigger;
 
+    public GameObject targetBank;
+    public GameObject targetEscape;
+
 	// How many cops are chasing the robber
 	public int CopsOnTail {
 		get { return copsOnTail; }
@@ -202,5 +205,43 @@ public class Robber : Character
 		QueueAction(new Wander(4));
 		QueueAction(new Idle(2));
 		return true;
+	}
+
+	/// <summary>
+	/// Marks the robber as having failed its
+	/// robbery attempt after getting caught by the cops
+	/// </summary>
+	public void Arrest()
+	{
+		if (crimeLevel == 0)
+			return;
+        Bayes.reportRobbery (targetBank, targetEscape, false);
+		Reset ();
+	}
+
+	/// <summary>
+	/// Marks the robber as having a successful
+	/// robbery after getting away
+	/// </summary>
+	public void Escape()
+	{
+		if (crimeLevel == 0)
+			return;
+        //Debug.Log ("Got away safely!");
+        Bayes.reportRobbery (targetBank, targetEscape, true);
+
+		Reset ();
+	}
+
+	/// <summary>
+	/// Resets the robber's values after finishing a rob attempt
+	/// </summary>
+	private void Reset()
+	{
+		crimeLevel = 0;
+		hasRobbed = false;
+		store = null;
+		target = null;
+		trigger.collider.enabled = false;
 	}
 }

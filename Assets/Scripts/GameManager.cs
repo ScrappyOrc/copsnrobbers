@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 		copList = new GameObject[COPS];
 
 		City.Initialize();
+        Bayes.Initialize();
 	}
 
 	/// <summary>

@@ -7,9 +7,8 @@ public class Cop : Character
 	private Robber nearbyRobber;
 
 	public Robber Robber {
-		get {
-			return robber;
-		}
+		get { return robber; }
+		set { robber = value; }
 	}
 
 	// Use this for initialization
