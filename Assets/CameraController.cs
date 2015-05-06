@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		/* This is the camera controller, but I added the camera to the player
+		 * 
 		Vector3 displacement = Vector3.zero;
 		Quaternion rotation = Quaternion.identity;
 
@@ -54,5 +56,7 @@ public class CameraController : MonoBehaviour {
 
 		gameObject.transform.position += displacement;
 		//gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.eulerAngles + rotation.eulerAngles);
+
+		*/
 	}
 }
