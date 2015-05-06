@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 		forward.Set(forward.x, 0, forward.z);
 		forward = forward.normalized * TRANSLATE_SPEED;
 
-		Debug.Log( "Forward: " + forward );
+		//Debug.Log( "Forward: " + forward );
 
 		if( horizontalMovement < -0.5f )
 		{
