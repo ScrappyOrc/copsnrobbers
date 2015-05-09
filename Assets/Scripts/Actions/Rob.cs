@@ -49,7 +49,7 @@ public class Rob : Action {
 			done = true;
 			(character as Robber).trigger.collider.enabled = true;
 			Debug.Log("MUAHAHAHAHAHA");
-
+			/*
 			List<GameObject> escapePoints = new List<GameObject> ();
 			// Create a weighted list of all the escape points
 			for (int i = 0; i < City.escapes.Length; i++) {
@@ -59,7 +59,7 @@ public class Rob : Action {
 			}
 			// choose an escape point.
 			(character as Robber).targetEscape = escapePoints [(int)(Random.value * escapePoints.Count)];
-
+			*/
 			((Robber)character).CrimeLevel++;
 			Debug.Log ("increasing crime level!!!");
 		}

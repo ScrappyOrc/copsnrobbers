@@ -7,14 +7,21 @@ using RAIN.Core;
 [RAINAction]
 public class RainStalkTarget : ActionBase
 {
+	public int STALK_LIMIT = 10;
+
 	float followDistance = 10.0f;
+	int stalkCount;
 
 	// this action will stalk a citizen if they have a citizen as a target
     public override ActionResult Execute()
     {
-		Debug.Log ("Robber is stalking a target, he is slightly more fit (+10)");
-		character.fitness += 10;
-		
+		if (stalkCount == 0) 
+		{
+			stalkCount = STALK_LIMIT;
+			return ActionResult.FAILURE;
+		}
+		stalkCount--;
+
 		character.QueueAction(new Idle(3));
 		return ActionResult.RUNNING;
     }

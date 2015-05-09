@@ -20,6 +20,7 @@ public class Robber : Character
 
     public GameObject targetBank;
     public GameObject targetEscape;
+	public Observation robObservation;
 
 	// How many cops are chasing the robber
 	public int CopsOnTail {
@@ -215,7 +216,10 @@ public class Robber : Character
 	{
 		if (crimeLevel == 0)
 			return;
-        Bayes.reportRobbery (targetBank, targetEscape, false);
+
+		robObservation.rob = false;
+		GameManager.singleton.bayes.Add(robObservation);
+        //Bayes.reportRobbery (targetBank, targetEscape, false);
 		Reset ();
 	}
 
@@ -228,7 +232,9 @@ public class Robber : Character
 		if (crimeLevel == 0)
 			return;
         //Debug.Log ("Got away safely!");
-        Bayes.reportRobbery (targetBank, targetEscape, true);
+        //Bayes.reportRobbery (targetBank, targetEscape, true);
+		robObservation.rob = true;
+		GameManager.singleton.bayes.Add (robObservation);
 
 		Reset ();
 	}
@@ -242,6 +248,7 @@ public class Robber : Character
 		hasRobbed = false;
 		store = null;
 		target = null;
+		targetEscape = null;
 		trigger.collider.enabled = false;
 	}
 }

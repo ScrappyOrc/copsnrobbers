@@ -11,9 +11,11 @@ public class RainIsGoodTarget : ActionBase
     {
 		// check to see if the target character/building has a lot of money to rob
 		//if( character.target.cashRegister > 250)
+		if ((character as Robber).targetEscape != null)
 			return ActionResult.SUCCESS;
 
 		character.target = null;
+		(character as Robber).targetEscape = null;
         return ActionResult.FAILURE;
     }
 }

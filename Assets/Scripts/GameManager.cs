@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 	private GameObject[] copList;
 	private float spawnTimer;
 
+	public Bayes2 bayes;
+
 	/// <summary>
 	/// Retrieves the list of citizens in the game
 	/// </summary>
@@ -50,7 +52,9 @@ public class GameManager : MonoBehaviour
 		copList = new GameObject[COPS];
 
 		City.Initialize();
-        Bayes.Initialize();
+        //Bayes.Initialize();
+		bayes = new Bayes2 ();
+		bayes.Initialize ();
 	}
 
 	/// <summary>

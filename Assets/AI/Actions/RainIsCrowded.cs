@@ -19,20 +19,24 @@ public class RainIsCrowded : ActionBase
 	/// </summary>
     public override ActionResult Execute()
     {
-		// TODO - give the number of cops/citizens a "weight" and measure that
-		// against the character's aggressiveness/craziness/whathaveyou instead
-		// of having flat amounts to make them unique individuals
+		int cops = GameManager.singleton.CountNearby(CharacterType.COP, character.transform.position, 50);
+		int citizens = GameManager.singleton.CountNearby (CharacterType.CITIZEN, character.transform.position, 50);
+		int escape = (int)(Random.value * City.escapes.Length);
+	
+		bool shouldRob = GameManager.singleton.bayes.ShouldRob(escape, citizens, cops);
 
-		citCount = CIT_COUNT;
+		if (shouldRob) 
+		{
+			(character as Robber).targetEscape = City.escapes[escape];
 
-		// If the character's Y chromosome == 0, then they are more reckless. They will consider a place crowded
-		// if there are more people than a non-reckless robber would find a place crowded. (i.e. 13 vs 10 citizens)
-		if (character.chromosome == 0 || character.chromosome == 1 || character.chromosome == 4 || character.chromosome == 5)
-			citCount += 3;
+			Observation obs = new Observation();
+			obs.escapeIndex = escape;
+			obs.citizens = citizens;
+			obs.cops = cops;
+			(character as Robber).robObservation = obs;
 
-		bool crowded = GameManager.singleton.CountNearby(CharacterType.COP, character.transform.position, 50) > COP_COUNT
-			|| GameManager.singleton.CountNearby(CharacterType.CITIZEN, character.transform.position, 50) > citCount;
-
-		return crowded ? ActionResult.SUCCESS : ActionResult.FAILURE;
+			return ActionResult.FAILURE;
+		}
+		else return ActionResult.SUCCESS;
     }
 }
