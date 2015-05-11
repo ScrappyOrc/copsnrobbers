@@ -35,7 +35,7 @@ public class Citizen : Character
 		//Debug.Log ("citizen got triggered");
 		if (other.CompareTag ("Robber"))
 		{
-			//Debug.Log("Touched a robber!");
+			Debug.Log("Touched a robber!");
 
 			// Run away from the robber at a higher-than-normal speed
 			GameObject robber = other.transform.parent.gameObject;
@@ -58,6 +58,8 @@ public class Citizen : Character
 		else if (other.CompareTag ("Player"))
 		{
 			Debug.Log("touched the player instead!");
+			agent.speed = 3.5f;
+			ForceAction(new Idle(3.0f));
 		}
 	}
 }
