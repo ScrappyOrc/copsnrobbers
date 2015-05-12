@@ -25,6 +25,7 @@ public class Idle : Action
 	/// <param name="character">The character controlled by the action</param>
 	public void Apply(Character character) 
 	{
+		character.Agent.Stop();
 		timeLeft -= Time.deltaTime;
 		done = timeLeft <= 0;
 	}

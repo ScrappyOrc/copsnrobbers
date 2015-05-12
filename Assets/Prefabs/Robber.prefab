@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423292}
   - 135: {fileID: 13523292}
+  - 54: {fileID: 5441956}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Robber
@@ -30,7 +31,6 @@ GameObject:
   - 195: {fileID: 19568136}
   - 114: {fileID: 11473226}
   - 114: {fileID: 11485144}
-  - 135: {fileID: 13511706}
   m_Layer: 0
   m_Name: Robber
   m_TagString: Robber
@@ -90,6 +90,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154448}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5441956
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123292}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &11473226
 MonoBehaviour:
   m_ObjectHideFlags: 1
