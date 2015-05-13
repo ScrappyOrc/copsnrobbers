@@ -59,7 +59,7 @@ public class Citizen : Character
 		{
 			Debug.Log("touched the player instead!");
 			agent.speed = 3.5f;
-			ForceAction(new Idle(3.0f));
+			ForceAction(new Wander(4));
 		}
 	}
 }
