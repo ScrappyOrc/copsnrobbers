@@ -120,10 +120,10 @@ namespace ThreshEvolve
 		 * length of 10, this yields 1024 different values.  The mapping for your
 		 * game could be anything you want: linear, non-linear, whatever.
 		 */ 
-		static float Gen2Phen (uint gen)
+		public static float Gen2Phen (uint gen, float lb, float ub)	// TOMMY - use to update threshold value in robber NOW
 		{
-			float lb = 0.0f;			// Lower bound for threshold range in game
-			float ub = 200.0f;			// Upper bound
+			//float lb = 0.0f;			// Lower bound for threshold range in game
+			//float ub = 200.0f;			// Upper bound
 			float step = (ub - lb) / nChromVals;	// Step size for chrom values
 			return (gen * step + lb);
 		}
