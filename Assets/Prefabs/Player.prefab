@@ -196,7 +196,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!81 &8199586
 AudioListener:
@@ -283,7 +283,7 @@ InteractiveCloth:
   m_Damping: 0
   m_Thickness: .200000003
   m_UseGravity: 1
-  m_SelfCollision: 0
+  m_SelfCollision: 1
   m_ExternalAcceleration: {x: 0, y: 0, z: 0}
   m_RandomAcceleration: {x: 0, y: 0, z: 0}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}

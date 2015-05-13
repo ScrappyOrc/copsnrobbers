@@ -1,0 +1,207 @@
+Escapes 
+5 0.384615384615385 
+11 0.458333333333333 
+8 0.615384615384615 
+13 0.541666666666667 
+
+Citizens 
+60 104 
+394 562 
+4.61538461538462 4.33333333333333 
+3.12352529306395 2.20013174836075
+Cops 
+18 37 
+28 83 
+1.38461538461538 1.54166666666667 
+0.506369683541833 1.06236678619288
+Rob 
+13 0.351351351351351 
+24 0.648648648648649
+
+-- Observations ---------------------
+
+Entry:
+  Escape:   0
+  Citizens: 1
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   0
+  Citizens: 3
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 4
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   0
+  Citizens: 5
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 6
+  Cops:     2
+  Rob:      True
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     2
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 8
+  Cops:     2
+  Rob:      True
+Entry:
+  Escape:   0
+  Citizens: 9
+  Cops:     2
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 10
+  Cops:     2
+  Rob:      True
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 3
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 3
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 4
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 6
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 3
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 4
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 7
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 6
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 1
+  Cops:     6
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 8
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 1
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 1
+  Cops:     1
+  Rob:      True
+Entry:
+  Escape:   1
+  Citizens: 3
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 4
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 3
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 3
+  Cops:     2
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 4
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   1
+  Citizens: 2
+  Cops:     1
+  Rob:      False
+Entry:
+  Escape:   0
+  Citizens: 7
+  Cops:     1
+  Rob:      False

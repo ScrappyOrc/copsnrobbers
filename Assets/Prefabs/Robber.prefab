@@ -31,6 +31,7 @@ GameObject:
   - 195: {fileID: 19568136}
   - 114: {fileID: 11473226}
   - 114: {fileID: 11485144}
+  - 135: {fileID: 13511706}
   m_Layer: 0
   m_Name: Robber
   m_TagString: Robber
@@ -171,13 +172,14 @@ MonoBehaviour:
   target: {fileID: 0}
   lowMoney: 0
   wanderBlocks: 3
+  fitness: 300
   money: 0
   trigger: {fileID: 123292}
   targetBank: {fileID: 0}
   targetEscape: {fileID: 0}
 --- !u!135 &13511706
 SphereCollider:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154448}
